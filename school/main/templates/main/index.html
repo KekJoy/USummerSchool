@@ -1,0 +1,396 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'main/index/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'main/index/css/style.css' %}">
+    <title>U Summer School</title>
+    <link rel="stylesheet" href="https://unpkg.com/accordion-js@3.3.2/dist/accordion.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="">
+            <div class="container__blue header__card">
+                <div class="header__menu flex">
+                    <a href="{% url 'home' %}" class="header__link-logo">
+                        <img src="{% static 'main/index/img/header__logo.svg' %}" alt="Logo" class="header__logo" >
+                    </a>
+                    <div class="header__menu-right">
+                        <a href="{% url 'login' %}" class="header__link">
+                            Вход
+                        </a>
+                        <a href="{% url 'registration' %}"  class="button-reset header__button" >
+                        <button href="#" class="button-reset header__button">
+                            Регистрация 
+                        </button>
+                        </a>
+                    </div>
+                </div>
+                <div class="web-adaptive-header">
+                    <div class="header__content">
+                        <h1 class="header__content-title">
+                            Летняя школа
+                        </h1>
+                        <img src="{% static 'main/index/img/u summer school.png' %}" alt="Logo" class="header__content-img">
+                        <p class="header__content-text">
+                            Участие в U Summer School - это возможность погрузиться в одно из направлений сферы информационной безопасности.
+                        </p>
+                        <div class="header__content-arrow flex">
+                            <svg width="40" height="25" viewBox="0 0 40 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.7 0L20 15.4521L35.3 0L40 4.75708L20 25L0 4.75708L4.7 0Z" fill="white"/>
+                                </svg>
+                        </div>      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <section class="about__school web-adaptive">
+            <div class="">
+                <div class="container__white">
+                    <h2 class="about__school-title">
+                        О школе
+                    </h2>
+                    <div class="about__school-card">
+                        <div class="flex about__school-content">
+                            <p class="about__school-text">
+                                Участие в&nbsp;U&nbsp;Summer School&nbsp;&mdash; это возможность погрузиться в&nbsp;одно из&nbsp;направлений сферы информационной безопасности. 
+                                В&nbsp;течение месяца студенты решают рабочие задачи, учатся у&nbsp;экспертов компании, делают вклад в&nbsp;свое развитие.                        
+                            </p>
+                            <a href = "{% url 'about' %}">
+                            <button class="about__school-button button-reset">
+                                Подробнее
+                            </button>
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <ul class="list-reset about__school-list flex">
+                            <li class="about__school-list-li">
+                                <div class="flex about__school-list-content">
+                                    <div class="about__school-list-items">
+                                        <p class="about__school-list-block">
+                                            1
+                                        </p>
+                                    </div>
+                                    <p class="about__school-list-text">
+                                        Месяц обучения
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="about__school-list-li">
+                                <div class="flex about__school-list-content">
+                                    <div class="about__school-list-items">
+                                        <p class="about__school-list-block">
+                                            50
+                                        </p>
+                                    </div>
+                                    <p class="about__school-list-text">
+                                        Выпускников школы
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="about__school-list-li">
+                                <div class="flex about__school-list-content">
+                                    <div class="about__school-list-items">
+                                        <p class="about__school-list-block">
+                                            8
+                                        </p>
+                                    </div>
+                                    <p class="about__school-list-text">
+                                        Направлений 
+                                    </p>
+                                </div>
+                            </li>                                                              
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="program">
+            <div class="container__blue">
+                <h2 class="program__title">
+                    Направления 
+                </h2>
+                <div class="program__list-space web-adaptive">
+                    <ul class="list-reset program__list accordion">
+                        <li class="program__list-card">
+                            <div class="flex program__list-items">
+                                <p class="program__list-text">
+                                    Департамент системной интеграции.                     
+                                </p>
+                                <button class="button-reset program__button">
+                                    <svg width="36" height="23" viewBox="0 0 36 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.23 0.941406L18 14.5392L31.77 0.941406L36 5.12764L18 22.9414L0 5.12764L4.23 0.941406Z" fill="#3F43C5"/>
+                                        </svg>        
+                                </button>                           
+                            </div>
+                            <div class="program__description">
+                                <p class="program__description-text">
+                                    В течение месяца студенты решают рабочие задачи, учатся у экспертов компании, делают вклад в свое развитие.
+                                </p>
+                            </div>                            
+                        </li>
+                        <li class="program__list-card">
+                            <div class="flex program__list-items">
+                                <p class="program__list-text">
+                                    Безопасная разработка                                    
+                                </p>
+                                <button class="button-reset program__button">
+                                    <svg width="36" height="23" viewBox="0 0 36 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.23 0.941406L18 14.5392L31.77 0.941406L36 5.12764L18 22.9414L0 5.12764L4.23 0.941406Z" fill="#3F43C5"/>
+                                        </svg>        
+                                </button>                           
+                            </div>
+                            <div class="program__description">
+                                <p class="program__description-text">
+                                    В течение месяца студенты решают рабочие задачи, учатся у экспертов компании, делают вклад в свое развитие.
+                                </p>
+                            </div> 
+                        </li>
+                        <li class="program__list-card">
+                            <div class="flex program__list-items">
+                                <p class="program__list-text">
+                                    Исследовательский центр                                  
+                                </p>
+                                <button class="button-reset program__button">
+                                    <svg width="36" height="23" viewBox="0 0 36 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.23 0.941406L18 14.5392L31.77 0.941406L36 5.12764L18 22.9414L0 5.12764L4.23 0.941406Z" fill="#3F43C5"/>
+                                        </svg>        
+                                </button>                           
+                            </div>
+                            <div class="program__description">
+                                <p class="program__description-text">
+                                    В течение месяца студенты решают рабочие задачи, учатся у экспертов компании, делают вклад в свое развитие.
+                                </p>
+                            </div> 
+                        </li>
+                        <li class="program__list-card">
+                            <div class="flex program__list-items">
+                                <p class="program__list-text">
+                                    USSC-SOC                                   
+                                </p>
+                                <button class="button-reset program__button">
+                                    <svg width="36" height="23" viewBox="0 0 36 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.23 0.941406L18 14.5392L31.77 0.941406L36 5.12764L18 22.9414L0 5.12764L4.23 0.941406Z" fill="#3F43C5"/>
+                                        </svg>        
+                                </button>                           
+                            </div>
+                            <div class="program__description">
+                                <p class="program__description-text">
+                                    В течение месяца студенты решают рабочие задачи, учатся у экспертов компании, делают вклад в свое развитие.
+                                </p>
+                            </div> 
+                        </li>
+                        <li class="program__list-card">
+                            <div class="flex program__list-items">
+                                <p class="program__list-text">
+                                    ePlat4m разработка                                    
+                                </p>
+                                <button class="button-reset program__button">
+                                    <svg width="36" height="23" viewBox="0 0 36 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.23 0.941406L18 14.5392L31.77 0.941406L36 5.12764L18 22.9414L0 5.12764L4.23 0.941406Z" fill="#3F43C5"/>
+                                        </svg>        
+                                </button>                           
+                            </div>
+                            <div class="program__description">
+                                <p class="program__description-text">
+                                    В течение месяца студенты решают рабочие задачи, учатся у экспертов компании, делают вклад в свое развитие.
+                                </p>
+                            </div> 
+                        </li>
+                        <li class="program__list-card">
+                            <div class="flex program__list-items">
+                                <p class="program__list-text">
+                                    DATAPK разработка                                   
+                                </p>
+                                <button class="button-reset program__button">
+                                    <svg width="36" height="23" viewBox="0 0 36 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.23 0.941406L18 14.5392L31.77 0.941406L36 5.12764L18 22.9414L0 5.12764L4.23 0.941406Z" fill="#3F43C5"/>
+                                        </svg>        
+                                </button>                           
+                            </div>
+                            <div class="program__description">
+                                <p class="program__description-text">
+                                    В течение месяца студенты решают рабочие задачи, учатся у экспертов компании, делают вклад в свое развитие.
+                                </p>
+                            </div> 
+                        </li>
+                        <li class="program__list-card">
+                            <div class="flex program__list-items">
+                                <p class="program__list-text">
+                                    Технический департамент                                    
+                                </p>
+                                <button class="button-reset program__button">
+                                    <svg width="36" height="23" viewBox="0 0 36 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.23 0.941406L18 14.5392L31.77 0.941406L36 5.12764L18 22.9414L0 5.12764L4.23 0.941406Z" fill="#3F43C5"/>
+                                        </svg>        
+                                </button>                           
+                            </div>
+                            <div class="program__description">
+                                <p class="program__description-text">
+                                    В течение месяца студенты решают рабочие задачи, учатся у экспертов компании, делают вклад в свое развитие.
+                                </p>
+                            </div> 
+                        </li>
+                        <li class="program__list-card">
+                            <div class="flex program__list-items">
+                                <p class="program__list-text">
+                                    FT-Soft. Серверная, клиентская и мобильная разрабокта                                   
+                                </p>
+                                <button class="button-reset program__button">
+                                    <svg width="36" height="23" viewBox="0 0 36 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.23 0.941406L18 14.5392L31.77 0.941406L36 5.12764L18 22.9414L0 5.12764L4.23 0.941406Z" fill="#3F43C5"/>
+                                        </svg>        
+                                </button>                           
+                            </div>
+                            <div class="program__description">
+                                <p class="program__description-text">
+                                    В течение месяца студенты решают рабочие задачи, учатся у экспертов компании, делают вклад в свое развитие.
+                                </p>
+                            </div> 
+                        </li>
+                    </ul>     
+                </div>
+            </div>
+        </section>
+
+        <section class="data web-adaptive">
+            <div>
+                <div class="container__white">
+                    <h2 class="data__title">Даты прохождения</h2>
+                    <ul class="list-reset data__list">
+                        <li class="test">
+                            <div class="data__content-first accordions">
+                                <div class="flex data__img-group"> 
+                                    <svg class="data__img-box" width="51" height="51" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="51" height="51" fill="#EF476F"/>
+                                        </svg>   
+                                    
+                                        <svg class="data__img-line" width="362" height="9" viewBox="0 0 362 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="362" height="9" fill="#3F43C5"/>
+                                            </svg>
+                                    </div>                               
+                                <div class="data__step">
+                                    <p class="">
+                                        1 этап
+                                    </p>
+                                </div>
+                                <p class="data__time">
+                                    21.10.2022 — 22.11.2022
+                                </p>
+                                <a class="data__more">
+                                    Подробнее
+                                </a>
+                            </div>
+                            <div class="data__accordion-blog">
+                                <p class="data__accordion-descr ">
+                                    У каждого студента есть куратор, готовый научить, помочь, поддержать.
+                                </p>
+                            </div>
+                        </li>  
+                        <li class="test">
+                            <div class="data__content accordions">
+                                <div class="flex data__img-group"> 
+                                    <svg class="data__img-box" width="51" height="51" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="51" height="51" fill="#EF476F"/>
+                                        </svg>   
+                                    
+                                        <svg class="data__img-line" width="362" height="9" viewBox="0 0 362 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="362" height="9" fill="#3F43C5"/>
+                                            </svg>
+                                    </div>                               
+                                <div class="data__step">
+                                    <p class="">
+                                        2 этап
+                                    </p>
+                                </div>
+                                <p class="data__time">
+                                    21.10.2022 — 22.11.2022
+                                </p>
+                                <a class="data__more">
+                                    Подробнее
+                                </a>
+                            </div>
+                            <div class="data__accordion-blog">
+                                <p class="data__accordion-descr ">
+                                    У каждого студента есть куратор, готовый научить, помочь, поддержать.
+                                </p>
+                            </div>
+                        </li> 
+                        <li class="test">
+                            <div class="data__content accordions">
+                                <div class="flex data__img-group"> 
+                                    <svg class="data__img-box" width="51" height="51" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="51" height="51" fill="#EF476F"/>
+                                        </svg>   
+                                    
+                                    <svg class="data__img-line" width="362" height="9" viewBox="0 0 362 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="362" height="9" fill="#3F43C5"/>
+                                        </svg>                                        
+                                                
+                                </div>                               
+                                <div class="data__step">
+                                    <p class="">
+                                        3 этап
+                                    </p>
+                                </div>
+                                <p class="data__time">
+                                    21.10.2022 — 22.11.2022
+                                </p>
+                                <a class="data__more">
+                                    Подробнее
+                                </a>                              
+                            </div>
+                            <div class="data__accordion-blog">
+                                <p class="data__accordion-descr ">
+                                    У каждого студента есть куратор, готовый научить, помочь, поддержать.
+                                </p>
+                            </div>
+                        </li>                                                       
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="system web-adaptive">
+            <div>
+                <div class="container__white">
+                    <h2 class="system__title"> Система отбора </h2>
+                    <div class="system__block">
+                        <p class="system__block-text">
+                            Участие в&nbsp;U&nbsp;Summer School&nbsp;&mdash; это возможность погрузиться в&nbsp;одно из&nbsp;направлений сферы информационной безопасности. 
+                            В&nbsp;течение месяца студенты решают рабочие задачи, учатся у&nbsp;экспертов компании, делают вклад в&nbsp;свое развитие.
+                        </p>
+                        <p class="system__block-text">
+                            У&nbsp;каждого студента есть куратор, готовый научить, помочь, поддержать.
+                        </p>
+                        <p class="system__block-text">
+                            Летняя практика не&nbsp;оплачивается. Лучших студентов приглашаем после прохождения практики на&nbsp;стажировку.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container__blue-footer footer__position flex">
+            <a href="{% url 'home' %}" class="footer__logo">
+                <img src="{% static 'main/index/img/header__logo.svg' %}" alt="Logo" class="header__logo" >
+            </a>
+        </div>
+    </footer>
+
+    
+    <script src="{% static 'main/index/js/script.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+</body>
+</html>

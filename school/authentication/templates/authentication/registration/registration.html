@@ -1,0 +1,392 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'authentication/registration/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'authentication/registration/css/style.css' %}">
+    <title>U Summer School</title>
+    <link rel="stylesheet" href="https://unpkg.com/accordion-js@3.3.2/dist/accordion.min.css">
+    <link rel="stylesheet" href="{% static 'authentication/registration/css/selection.css' %}">
+
+    <style>
+        #msform fieldset {
+            background: white;
+            border: 0 none;
+            border-radius: 0px;
+            padding: 20px 30px;
+            box-sizing: border-box;
+            width: 80%;
+            margin: 0 10%;
+
+            /*stacking fieldsets above each other*/
+            position: relative;
+        }
+
+        /*Hide all except first fieldset*/
+        #msform fieldset:not(:first-of-type) {
+            display: none;
+        }
+
+        .active {
+
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Регистрация 1 -->
+    <header class="header">
+        <div class="">
+            <div class="container__blue header__card">
+                <div class="header__menu flex">
+                    <a href="{% url 'home' %}" class="header__link-logo">
+                        <img src="{% static 'authentication/registration/img/header__logo.svg' %}" alt="Logo" class="header__logo">
+                    </a>
+                    <div class="header__position-home">
+                        <a href="{% url 'home' %}" class="header__link-home">
+                            Главная страница
+                        </a>
+                    </div>
+                </div>                           
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <section class="registration web-adaptive">
+            <div class="container__white">
+                <div class="flex">
+                    <div class="regestration__student-group">         
+                        <a class="regestration__student-link flex">
+                            <svg width="17" height="27" viewBox="0 0 17 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 3.1725L6.49258 13.5L17 23.8275L13.7652 27L1.31724e-06 13.5L13.7652 -1.41398e-07L17 3.1725Z" fill="#EF476F"/>
+                            </svg>  
+                            Вернуться на главную
+                        </a>
+                    </div>
+                    <div class="header__position-home">
+                        <h2 class="registration__title">
+                            Регистрация
+                        </h2>
+                    </div>
+                    
+                </div>
+                <div class="web-adaptive"> 
+                    <ul class="list-reset registration__list-form flex" id="progressbar">
+                        <li class="test active">
+                            <div class="flex registration__img-group">
+                                <div class="registration__not-stage swipe-1-before registration__img-box"></div> 
+                                <p class="registration__stage registration__img-box swipe swipe-1">
+                                    1
+                                </p>
+                                <svg class="registration__img-line" width="362" height="9" viewBox="0 0 362 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="362" height="9" fill="#3F43C5"/>
+                                </svg>
+                            </div>
+                        </li>  
+                        <li class="test">
+                            <div class="flex registration__img-group"> 
+                                <div class="registration__not-stage swipe-2-before registration__img-box"></div>
+                                <p class="registration__stage registration__img-box swipe swipe-2">
+                                    2
+                                </p>                                                    
+                                <svg class="registration__img-line" width="362" height="9" viewBox="0 0 362 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="362" height="9" fill="#3F43C5"/>
+                                </svg>
+                            </div>                                                       
+                        </li> 
+                        <li class="test">
+                            <div class="flex registration__img-group">
+                                <div class="registration__not-stage swipe-3-before registration__img-box"></div>
+                                <p class="registration__stage registration__img-box swipe swipe-3">
+                                    3
+                                </p>                                                                                                                           
+                            </div>                                                                                  
+                        </li>                                                       
+                    </ul>
+                </div>
+
+                <form id="msform" action="{% url 'registration' %}"  method="post">
+                    {% csrf_token %}
+                    <fieldset>
+                        <ul class="list-reset registration__list">
+                        <li class="registration__items flex web-adaptive">
+                        <p class="registration__text">
+                            Логин
+                        </p>
+                        <div class="registration__input-remark">
+                            <input type="text" name="username" id="id_username" placeholder="Логин" class="registration__input"/>
+                            <p class="registration__remark">
+                                Не может начинаться с символов «-», «,», «_»
+                            </p>
+                        </div>
+                        </li>
+
+                        <li class="registration__items flex web-adaptive">
+                        <p class="registration__text">
+                            Почта
+                        </p>
+                        <div class="registration__input-remark">
+                            <input type="email" name="email" id="id_email" placeholder="Почта" class="registration__input"/>
+                            <p class="registration__remark">
+                                Не может начинаться с символов «-», «,», «_»
+                            </p>
+                        </div>
+                        </li>
+
+                        <li class="registration__items flex web-adaptive">
+                        <p class="registration__text">
+                            Пароль
+                        </p>
+                        <div class="registration__input-remark">
+                            <input type="password" name="password1" id="id_password1" placeholder="Пароль" class="registration__input"/>
+                            <p class="registration__remark">
+                                Пароль должен содержать не менее девяти знаков, 
+                                включать цифры и латинские буквы в разных регистрах
+                            </p>
+                        </div>
+                        </li>
+
+                        <li class="registration__items flex web-adaptive">
+                        <p class="registration__text">
+                            Повторите пароль
+                        </p>
+                        <div class="registration__input-remark">
+                            <input type="password" name="password2" id="id_password2" placeholder="Повторите пароль" class="registration__input"/>
+                            <p class="registration__remark">
+                            </p>
+                        </div>
+                        </li>
+                        </ul>
+
+                        
+                        <div class="registration__button-position flex">
+
+                        <input type="button" name="next" class="next action-button registration__button" value="Вперёд"/>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+
+                        <ul class="list-reset registration__list">
+                            <li class="registration__items flex web-adaptive">
+                            <p class="registration__text">
+                                Имя
+                            </p>                            
+                            <div class="registration__input-remark">
+                                <input type="text" name="first_name" id="first_name" placeholder="Имя" class="registration__input"/>
+                                <p class="registration__remark">
+                                    Доступны только русские символы
+                                </p>
+                            </div>
+                            </li>
+    
+                            <li class="registration__items flex web-adaptive">
+                            <p class="registration__text">
+                                Фамилия
+                            </p>
+                            <div class="registration__input-remark">
+                                <input type="text" name="last_name" id="last_name" placeholder="Фамилия" class="registration__input"/>
+                                <p class="registration__remark">
+                                    Доступны только русские символы
+                                </p>
+                            </div>
+                            </li>
+    
+                            <li class="registration__items flex web-adaptive">
+                            <p class="registration__text">
+                                Отчество
+                            </p>
+                            <div class="registration__input-remark">
+                                <input type="text" name="patronymic_name" id="patronymic_name" placeholder="Отчество" class="registration__input"/>
+                                <p class="registration__remark">
+                                    Доступны только русские символы
+                                </p>
+                            </div>
+                            </li>
+    
+                            <li class="registration__items flex web-adaptive">
+                            <p class="registration__text">
+                                Телефон
+                            </p>
+                            <div class="registration__input-remark">
+                                <input type="text" name="phone" id="phone" placeholder="Телефон" class="registration__input"/>
+                                <p class="registration__remark">
+                                    Формат +7 XXX XXX-XX-XX
+                                </p>
+                            </div>
+                            </li>
+                        </ul>
+
+                            <div class="registration__button-position-next flex">
+
+
+                            <input type="button" name="previous" class="previous action-button-previous registration__button-next" value="Назад"/>
+                            <input type="button" name="next" class="next action-button registration__button-next" value="Вперёд"/>
+                            </div>
+
+                            
+                    </fieldset>
+
+                    <fieldset>
+
+                        <ul class="list-reset registration__list">
+                            <li class="registration__items flex web-adaptive">
+                            <p class="registration__text">
+                                Учебное заведение
+                            </p>
+                            <div class="registration__input-remark">
+                                <input type="text" name="university" id="university" placeholder="Учебное заведение" class="registration__input"/>
+                                <p class="registration__remark">
+                                    Доступны только русские символы
+                                </p>
+                            </div>
+                            </li>
+    
+                            <li class="registration__items flex web-adaptive">
+                            <p class="registration__text">
+                                Факультет
+                            </p>
+                            <div class="registration__input-remark">
+                                <input type="text" name="university_faculty" id="university_faculty" placeholder="Факультет" class="registration__input"/>
+                                <p class="registration__remark">
+                                    Доступны только русские символы
+                                </p>
+                            </div>
+                            </li>
+    
+                            <li class="registration__items flex web-adaptive">
+                            <p class="registration__text">
+                                Специальность
+                            </p>
+                            <div class="registration__input-remark">
+                                <input type="text" name="university_specitality" id="university_specitality" placeholder="Специальность" class="registration__input"/>
+                                <p class="registration__remark">
+                                    Доступны только русские символы
+                                </p>
+                            </div>
+                            </li>
+    
+                            <li class="registration__items flex web-adaptive">
+                            <p class="registration__text">
+                                Курс
+                            </p>
+                            <div class="registration__input-remark">
+                                <select name="university_course" id="university_course" class="registration__input educate-stage">
+                                    <option value="2 курс">2 курс</option>
+                                    <option value="3 курс">3 курс</option>
+                                </select>
+                                <p class="registration__remark">
+
+                                </p>
+                            </div>
+                            </li>
+                        </ul>
+
+                            <div class="registration__button-position-next flex">
+                                <input type="button" name="previous" class="previous action-button-previous registration__button-next" value="Назад"/>
+                                <input type="submit" name="submit" class="submit action-button registration__button-next" value="Завершить регистрацию"/>
+
+                            </div>
+                        
+                    </fieldset>
+                </form>
+        
+               
+            </div>
+        </section>     
+    </main>
+    
+    <script src="{% static 'authentication/registration/js/script.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>  
+
+    <script>
+    //jQuery time
+    var current_fs, next_fs, previous_fs; //fieldsets
+    var left, opacity, scale; //fieldset properties which we will animate
+    var animating; //flag to prevent quick multi-click glitches
+
+    $(".next").click(function(){
+        if(animating) return false;
+        animating = true;
+
+        current_fs = $(this).parent().parent();
+        next_fs = $(this).parent().parent().next();
+
+        //activate next step on progressbar using the index of next_fs
+        $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+        $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+        //show the next fieldset
+        next_fs.show();
+        //hide the current fieldset with style
+        current_fs.animate({opacity: 0}, {
+            step: function(now, mx) {
+                //as the opacity of current_fs reduces to 0 - stored in "now"
+                //1. scale current_fs down to 80%
+                scale = 1 - (1 - now) * 0.2;
+                //2. bring next_fs from the right(50%)
+                left = (now * 20)+"%";
+                //3. increase opacity of next_fs to 1 as it moves in
+                opacity = 1 - now;
+                current_fs.css({
+            'transform': 'scale('+scale+')',
+            'position': 'absolute'
+          });
+                next_fs.css({'left': left, 'opacity': opacity});
+            },
+            duration: 600,
+            complete: function(){
+                current_fs.hide();
+                animating = false;
+            },
+            //this comes from the custom easing plugin
+            easing: 'easeInOutBack'
+        });
+    });
+
+    $(".previous").click(function(){
+        if(animating) return false;
+        animating = true;
+
+        current_fs = $(this).parent().parent();
+        previous_fs = $(this).parent().parent().prev();
+
+
+        //show the previous fieldset
+        $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+        $("#progressbar li").eq($("fieldset").index(previous_fs)).addClass("active");
+        previous_fs.show();
+        //hide the current fieldset with style
+        current_fs.animate({opacity: 0}, {
+            step: function(now, mx) {
+                //as the opacity of current_fs reduces to 0 - stored in "now"
+                //1. scale previous_fs from 80% to 100%
+                scale = 0.8 + (1 - now) * 0.2;
+                //2. take current_fs to the right(50%) - from 0%
+                left = ((1-now) * 20)+"%";
+                //3. increase opacity of previous_fs to 1 as it moves in
+                opacity = 1 - now;
+                current_fs.css({'left': left});
+                previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
+            },
+            duration: 600,
+            complete: function(){
+                current_fs.hide();
+                animating = false;
+            },
+            //this comes from the custom easing plugin
+            easing: 'easeInOutBack'
+        });
+    });
+
+    </script>
+  
+</body>
+</html>

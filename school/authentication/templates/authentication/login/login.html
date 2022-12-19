@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'authentication/login/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'authentication/login/css/style.css' %}">
+    <title>U Summer School</title>
+    <link rel="stylesheet" href="https://unpkg.com/accordion-js@3.3.2/dist/accordion.min.css">
+</head>
+<body>
+    <main class="main">
+        <section class="authorization web-adaptive">
+            <div class="authorization__container">
+                <div class="flex">
+                    <h2 class="authorization__title">
+                        Авторизация
+                    </h2>
+                    <button class="authorization__close button-reset">
+                        <svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M41 4.12929L36.8707 0L20.5 16.3707L4.12929 0L0 4.12929L16.3707 20.5L0 36.8707L4.12929 41L20.5 24.6293L36.8707 41L41 36.8707L24.6293 20.5L41 4.12929Z" fill="#EF476F"/>
+                            </svg>                            
+                    </button>
+                </div>
+                <div>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <ul class="list-reset authorization__list">
+                        <li class="authorization__items flex web-adaptive">
+                            <p class="authorization__text">
+                                Логин
+                            </p>
+                            <div class="">
+                                <!-- type="text" -->
+                                <input type="text" class="authorization__input" required id="id_username" name="username">
+                            </div>
+                        </li>
+                        <li class="authorization__items flex web-adaptive">
+                            <p class="authorization__text">
+                                Пароль
+                            </p>
+                            <div class="">
+                                <!-- type="text" -->
+                                <input type="password" class="authorization__input" required id="id_password" name="password">
+                            </div>
+                        </li>
+                    </ul>
+                        <div class="flex">
+                            <input type="submit" value="Войти" class="authorization__button">
+                        </div>
+                    </form>
+                </div>
+                <div class="web-adaptive">
+                    <div class="authorization__link-position flex">
+                        <p>
+                            <a href="{% url 'registration' %}" class="authorization__link">Зарегистрироваться</a>
+                        </p>
+                        <p>
+                            <a href="" class="authorization__link">Забыли пароль?</a>
+                        </p>
+                    </div> 
+                </div>                        
+            </div>
+        </section>     
+    </main>
+    
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+</body>
+</html>

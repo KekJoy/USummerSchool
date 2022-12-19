@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'main/about/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'main/about/css/style.css' %}">
+    <title>U Summer School</title>
+    <link rel="stylesheet" href="https://unpkg.com/accordion-js@3.3.2/dist/accordion.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="">
+            <div class="container__blue header__card">
+                <div class="header__menu flex">
+                    <a href="{% url 'home' %}" class="header__link-logo">
+                        <img src="{% static 'main/about/img/header__logo.svg' %}" alt="Logo" class="header__logo" >
+                    </a>
+                    <div class="header__position-home">
+                        <a href="{% url 'home' %}" class="header__link-home">
+                            Главная страница
+                        </a>
+                    </div>
+                    <div class="header__menu-right">
+                        <a href="{% url 'login' %}" class="header__link">
+                            Вход
+                        </a>
+                        <a href="{% url 'registration' %}"  class="button-reset header__button" >
+                            Регистрация 
+                        </a>
+                    </div>
+                </div>                           
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <section class="about__school web-adaptive">
+            <div class="container__white about__school-box">
+                <div class="flex">
+                    <h2 class="about__school-title">
+                        О школе
+                    </h2>
+                </div>
+                <div>
+                    <div class="about__text-block">
+                        <div>
+                            <h3 class="about__text-title">
+                                Из плановых в неплановые
+                            </h3>
+                            <p class="about__school-text">
+                                Равным образом начало повседневной работы по формированию позиции позволяет выполнять важные задания 
+                                по разработке существенных финансовых и административных условий. Задача организации, в особенности же 
+                                реализация намеченных плановых заданий позволяет оценить значение системы обучения кадров, соответствует 
+                                насущным потребностям. Повседневная практика показывает, что реализация намеченных плановых заданий 
+                                представляет собой интересный эксперимент проверки новых предложений. Разнообразный и богатый опыт дальнейшее 
+                                развитие различных форм деятельности требуют от нас анализа позиций, занимаемых участниками в отношении поставленных задач. 
+                                Таким образом консультация с широким активом обеспечивает широкому кругу (специалистов) участие в формировании систем массового участия.
+                                Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности способствует подготовки 
+                                и реализации соответствующий условий активизации.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex about__text-block">
+                        <div class="about__text right">
+                            <h3 class="about__text-title">
+                                Из плановых в неплановые
+                            </h3>
+                            <p class="about__school-text">
+                                Разнообразный и богатый опыт дальнейшее 
+                                развитие различных форм деятельности требуют от нас анализа позиций, занимаемых участниками в отношении поставленных задач. 
+                                Таким образом консультация с широким активом обеспечивает широкому кругу (специалистов) участие в формировании систем массового участия.
+                                Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности способствует подготовки 
+                                и реализации соответствующий условий активизации.
+                            </p>
+                        </div>
+                        <img class="about__school-img" src="{% static 'main/about/img/schol-1.jpg' %}" alt="schol-1">
+                    </div>
+                    <div class="about__text-block">
+                        <p class="about__school-text">
+                            Таким образом консультация с широким активом обеспечивает широкому кругу (специалистов) участие в формировании систем массового участия.
+                            Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности способствует подготовки 
+                            и реализации соответствующий условий активизации.
+                        </p>
+                    </div>
+                    <div class="flex about__text-block">
+                        <div class="about__text left">
+                            <h3 class="about__text-title">
+                                Из плановых в неплановые
+                            </h3>                     
+                            <p class="about__school-text"> 
+                                Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности способствует подготовки 
+                                и реализации соответствующий условий активизации.
+                                Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности способствует подготовки 
+                                и реализации соответствующий условий активизации.
+                                Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности способствует подготовки 
+                                и реализации соответствующий условий активизации.                              
+                            </p>
+                        </div>
+                        <img class="about__school-img" src="{% static 'main/about/img/schol-2.jpg' %}" alt="schol-1">
+                    </div>
+                </div>
+            </div>
+        </section>     
+    </main>
+
+    <footer>
+        <div class="container__blue-footer footer__position flex">
+            <a href="{% url 'home' %}" class="footer__logo">
+                <img src="{% static 'main/about/img/header__logo.svg' %}" alt="Logo" class="header__logo" >
+            </a>
+        </div>
+    </footer>
+
+    
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+</body>
+</html>
