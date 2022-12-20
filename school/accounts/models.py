@@ -1,6 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import User, AbstractUser
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from authentication.models import Profile
-
 
 class ProgramList(models.Model):
     title = models.CharField(max_length=200)
@@ -10,6 +12,7 @@ class TaskList(models.Model):
     program = models.ForeignKey(ProgramList, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     description = models.TextField()
+    number = models.CharField(max_length=5)
 
 
 class Programs(models.Model):

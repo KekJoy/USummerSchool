@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>U Summer School</title>
+    <link rel="stylesheet" href="https://unpkg.com/accordion-js@3.3.2/dist/accordion.min.css">
+    <link rel="stylesheet" href="css/selection.css">
+    <style>
+        /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+
+/* Document
+   ========================================================================== */
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+
+ html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+
+/**
+ * Remove the margin in all browsers.
+ */
+
+body {
+  margin: 0;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+
+main {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+
+a {
+  background-color: transparent;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+
+img {
+  border-style: none;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+button,
+input { /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+
+button,
+select { /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+
+details {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+
+summary {
+  display: list-item;
+}
+
+/* Misc
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 10+.
+ */
+
+template {
+  display: none;
+}
+
+/**
+ * Add the correct display in IE 10.
+ */
+
+[hidden] {
+  display: none;
+}
+
+
+        html {
+    box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+:root {
+    --white: #FFFFFF;
+    --pink: #EF476F;
+    --blue: #3F43C5;
+    --black: #000000;
+    --green: #3EDAA2;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: local("Montserrat-ExtraBold"),
+      url("../fonts/montserrat-v21-latin_cyrillic-800.woff2") format("woff2"),
+      url("../fonts/montserrat-v21-latin_cyrillic-800.woff") format("woff");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: local("Montserrat-Bold"),
+      url("../fonts/montserrat-v21-latin_cyrillic-700.woff2") format("woff2"),
+      url("../fonts/montserrat-v21-latin_cyrillic-700.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: local("Montserrat-SemiBold"),
+      url("../fonts/montserrat-v21-latin_cyrillic-600.woff2") format("woff2"),
+      url("../fonts/montserrat-v21-latin_cyrillic-600.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: local("Montserrat-Regular"),
+        url("../fonts/montserrat-v21-latin_cyrillic-regular.woff2") format("woff2"),
+        url("../fonts/montserrat-v21-latin_cyrillic-regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src:  url("../fonts/Montserrat-Medium.ttf");
+}
+
+@font-face {
+    font-family: QuinqueFive;
+    src:  url("../fonts/QuinqueFive.ttf");
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: black;
+    margin: 0 auto;
+    min-width: 1800px;
+}
+
+input {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    margin: 0
+}
+
+.button-reset {
+    padding: 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: transparent;
+}
+
+.list-reset {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.container__blue {
+    background-color: var(--blue);
+    margin: 0 auto;
+    width: 100%;
+    margin-bottom: 100px;
+    min-width: 1800px;
+}
+
+.container__blue-footer {
+    background-color: var(--blue);
+    margin: 0 auto;
+    width: 100%;
+}
+
+.container__white {
+    background-color: var(--white);
+    width: 100%;
+    margin-bottom: 130px;
+    border-radius: 36px;
+}
+
+.web-adaptive-header {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-left: -201px;
+}
+
+.web-adaptive {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+/* Header */
+
+.header__position-home {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header__menu {
+    height: 160px;
+    align-items: center;
+
+}
+
+.header__link-logo {
+    margin-left: 130px;
+}
+
+.header__menu-right {
+    margin-right: 124px;
+}
+
+.header__button {
+    font-size: 24px;
+    padding: 24px 56px 24px 56px;
+    color: var(--white);
+    background-color: var(--pink);
+    border-radius: 12px;
+    border-style: solid;
+    border-color: var(--pink);
+    cursor: pointer;
+    font-weight: 600;
+    transition: border-color .2s linear, background-color .2s linear;
+}
+
+.header__button:focus {
+    background-color: #FF6489;
+    border-color: #FF6489;
+}
+
+.header__button:hover {
+    background-color: #FF6489;
+    border-color: #FF6489;
+}
+
+.header__button:active {
+    background-color: #CE3D60;
+    border-color:#CE3D60;
+}
+
+.header__link {
+    color: var(--white);
+    font-size: 24px;
+    margin-right: 60px;
+    font-weight: 600;
+}
+
+.header__link-home {
+    color: var(--white);
+    font-size: 24px;
+    margin-right: 350px;
+    font-weight: 600;
+}
+
+.header__content {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header__content-title {
+    font-size: 140px;
+    color: var(--white);
+    margin-left: 184px;
+    margin-bottom: 36px;
+    font-weight: 700;
+}
+
+
+.header__content-img {
+    margin-left: 142px;
+}
+
+.header__content-text {
+    margin-left: 184px;
+    max-width: 704px;
+    font-size: 28px;
+    color: var(--white);
+    margin-top: -60px;
+    font-weight: 500;
+}
+
+.header__content-arrow {
+    margin-left: 940px;
+    padding-bottom: 124px;
+    margin-top: 147px;
+}
+
+/* registration */
+
+.registration {
+    width: 1059px;
+    height: 1599px;
+    padding: 58px 58px 80px 61px;
+
+}
+
+.registration__head {
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 59px;
+}
+
+.registration__photo-edit {
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 68px;
+}
+
+.registration__title {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--blue);
+}
+
+.registration__items {
+    max-width: 948px;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: flex-start;
+    margin-bottom: 48px;
+
+}
+
+.registration__input {
+    height: 60px;
+    width: 526px;
+    border-radius: 12px;
+    border: 2px solid var(--blue);
+    border-color:var(--blue);
+    padding-left: 15px;
+    margin-bottom: 14px;
+}
+
+.registration__input:focus {
+    border: 3px solid var(--blue);
+    border-color:var(--blue);
+    outline: none;
+}
+
+.registration__text {
+    color: var(--blue);
+    font-weight: 500;
+    font-size: 28px;
+    padding-top: 13px;
+}
+
+.registration__remark {
+    color: var(--blue);
+    font-weight: 400;
+    font-size: 18px;
+    max-width: 520px;
+}
+
+.registration__stage {
+    background-color: var(--pink);
+    border-style: solid;
+    border-color: var(--pink);
+    padding: 12px 9px 15px 18px;
+    display: inline-block;
+    font-family: QuinqueFive;
+    font-weight: 400;
+    font-size: 30px;
+    color: var(--white);
+}
+
+.registration__img-box {
+    margin-right: 42px;
+}
+
+.registration__img-line {
+    justify-content: end center;
+}
+
+.registration__img-group {
+    align-items: center;
+}
+
+.registration__list-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 42px;
+    align-items: center;
+    margin-bottom: 80px;
+
+}
+
+.registration__button {
+    font-size: 24px;
+    padding: 24px 56px 24px 56px;
+    color: var(--white);
+    background-color: var(--pink);
+    border-radius: 12px;
+    border-style: solid;
+    border-color: var(--pink);
+    cursor: pointer;
+    font-weight: 600;
+    transition: border-color .2s linear, background-color .2s linear;
+    position: relative;
+}
+
+.registration__button-position {
+    gap: 0px 60px;
+    justify-content: center;
+}
+
+.registration__button:focus {
+    background-color: #FF6489;
+    border-color: #FF6489;
+}
+
+.registration__button:hover {
+    background-color: #FF6489;
+    border-color: #FF6489;
+}
+
+.registration__button:active {
+    background-color: #CE3D60;
+    border-color:#CE3D60;
+}
+
+.account__student-photo {
+    border-radius: 50%;
+    width: 154px;
+    height: 154px;
+    margin-right: 41px;
+}
+
+.account__student-link {
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--pink);
+    cursor: pointer;
+    transition: color .2s linear, fill .2s linear;
+
+    align-items: center;
+}
+
+
+
+@media screen and (max-width: 1680px) and (max-height: 1050px){
+    body {
+        zoom: 87%;
+    }
+}
+
+@media screen and (max-width: 1600px) and (max-height: 1024px){
+    body {
+        zoom: 84%
+    }
+
+    .about__school-list {
+        gap: 25px 100px;
+    }
+}
+
+@media screen and (max-width: 1600px) and (max-height: 900px){
+    body {
+        zoom: 80%;
+    }
+}
+
+@media screen and (max-width: 1440px) and (max-height: 900px){
+    body {
+        zoom: 76%;
+    }
+}
+
+@media screen and (max-width: 1366px) and (max-height: 768px){
+    body {
+        zoom: 67%;
+    }
+}
+
+
+@media screen and (max-width: 1280px) and (max-height: 1024px){
+    body {
+        zoom: 66%;
+    }
+}
+
+.select2-container{
+    box-sizing:border-box;
+    display:inline-block;
+    margin:0;
+    position:relative;
+    vertical-align:middle;
+}
+.select2-container .select2-selection--single{
+    box-sizing:border-box;
+    cursor:pointer;
+    display:flex;
+    height:60px;
+    border-radius: 12px;
+    user-select:none;
+    align-items: center;
+    padding-left: 7px;
+    -webkit-user-select:none
+}
+.select2-container .select2-selection--single .select2-selection__rendered{
+    display:block;
+    padding-left:8px;
+    padding-right:20px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap
+}
+.select2-container .select2-selection--single .select2-selection__clear{
+    background-color:transparent;
+    border:none;
+    font-size:1em
+}
+.select2-container[dir="rtl"] .select2-selection--single .select2-selection__rendered{
+    padding-right:8px;
+    padding-left:20px
+}
+.select2-container .select2-selection--multiple{
+    box-sizing:border-box;
+    cursor:pointer;
+    display:block;
+    min-height:32px;
+    user-select:none;
+    -webkit-user-select:none
+}
+.select2-container .select2-selection--multiple .select2-selection__rendered{
+    display:inline;
+    list-style:none;
+    padding:0
+}
+.select2-container .select2-selection--multiple .select2-selection__clear{
+    background-color:transparent;
+    border:none;
+    font-size:1em
+}
+.select2-container .select2-search--inline .select2-search__field{
+    box-sizing:border-box;
+    border:none;
+    font-size:100%;
+    margin-top:5px;
+    margin-left:5px;
+    padding:0;
+    max-width:100%;
+    resize:none;
+    height:18px;
+    vertical-align:bottom;
+    font-family:sans-serif;
+    overflow:hidden;
+    word-break:keep-all
+}
+.select2-container .select2-search--inline .select2-search__field::-webkit-search-cancel-button{
+    -webkit-appearance:none
+}
+.select2-dropdown{
+    background-color:white;
+    border:2px solid #3F43C5;
+    border-radius:12px;
+    box-sizing:border-box;
+    display:block;
+    position:absolute;
+    left:-100000px;
+    width:100%;
+    z-index:1051
+}
+.select2-results{
+    display:block
+}
+.select2-results__options{
+    list-style:none;
+    margin:0;
+    padding:0
+}
+.select2-results__option{
+    padding:6px;
+    user-select:none;
+    -webkit-user-select:none;
+}
+.select2-results__option--selectable{
+    cursor:pointer
+}
+.select2-container--open .select2-dropdown{
+    left:0
+}
+.select2-container--open .select2-dropdown--above{
+    border-bottom:none;
+    border-bottom-left-radius:0;
+    border-bottom-right-radius:0
+}
+.select2-container--open .select2-dropdown--below{
+    border-top:none;
+    border-top-left-radius:0;
+    border-top-right-radius:0
+}
+.select2-search--dropdown{
+    display:block;
+    padding:4px
+}
+.select2-search--dropdown .select2-search__field{
+    padding:4px;
+    width:100%;
+    box-sizing:border-box
+}
+.select2-search--dropdown .select2-search__field::-webkit-search-cancel-button{
+    -webkit-appearance:none
+}
+.select2-search--dropdown.select2-search--hide{
+    display:none
+}
+.select2-close-mask{
+    border:0;
+    margin:0;
+    padding:0;
+    display:block;
+    position:fixed;
+    left:0;
+    top:0;
+    min-height:100%;
+    min-width:100%;
+    height:auto;
+    width:auto;
+    opacity:0;
+    z-index:99;
+    background-color:#fff;
+    filter:alpha(opacity=0)
+}
+.select2-hidden-accessible{
+    border:0 !important;
+    clip:rect(0 0 0 0) !important;
+    -webkit-clip-path:inset(50%) !important;
+    clip-path:inset(50%) !important;
+    height:1px !important;
+    overflow:hidden !important;
+    padding:0 !important;
+    position:absolute !important;
+    width:1px !important;
+    white-space:nowrap !important
+}
+.select2-container--default .select2-selection--single{
+    background-color:#fff;
+    border:2px solid #3F43C5;
+    border-radius:12px
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+    color:black;
+    line-height:28px
+}
+.select2-container--default .select2-selection--single .select2-selection__clear{
+    cursor:pointer;
+    float:right;
+    font-weight:bold;
+    height:26px;
+    margin-right:20px;
+    padding-right:0px
+}
+.select2-container--default .select2-selection--single .select2-selection__placeholder{
+    color:black
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow{
+    height:26px;
+    position:absolute;
+    top:18px;
+    right:5px;
+    width:20px
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow b{
+    border-color:#3F43C5 transparent transparent transparent;
+    border-style:solid;
+    border-width:10px 8px 0 8px;
+    height:0;
+    left:50%;
+    margin-left:-18px;
+    margin-top:-6px;
+    position:absolute;
+    top:50%;
+    width:0
+}
+.select2-container--default[dir="rtl"] .select2-selection--single .select2-selection__clear{
+    float:left
+}
+.select2-container--default[dir="rtl"] .select2-selection--single .select2-selection__arrow{
+    left:1px;
+    right:auto
+}
+.select2-container--default.select2-container--disabled .select2-selection--single{
+    background-color:#eee;
+    cursor:default
+}
+.select2-container--default.select2-container--disabled .select2-selection--single .select2-selection__clear{
+    display:none
+}
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
+    border-color:transparent transparent #3F43C5 transparent;
+    border-width:0 8px 10px 8px;
+}
+.select2-container--default .select2-selection--multiple{
+    background-color:white;
+    border:2px solid #3F43C5;
+    border-radius:12px;
+    cursor:text;
+    padding-bottom:5px;
+    padding-right:5px;
+    position:relative
+}
+.select2-container--default .select2-selection--multiple.select2-selection--clearable{
+    padding-right:25px
+}
+.select2-container--default .select2-selection--multiple .select2-selection__clear{
+    cursor:pointer;
+    font-weight:bold;
+    height:20px;
+    margin-right:10px;
+    margin-top:5px;
+    position:absolute;
+    right:0;
+    padding:1px
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice{
+    background-color:#e4e4e4;
+    border:2px solid #3F43C5;
+    border-radius:12px;
+    box-sizing:border-box;
+    display:inline-block;
+    margin-left:5px;
+    margin-top:5px;
+    padding:0;
+    padding-left:20px;
+    position:relative;
+    max-width:100%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    vertical-align:bottom;
+    white-space:nowrap
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__display{
+    cursor:default;
+    padding-left:2px;
+    padding-right:5px
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove{
+    background-color:transparent;
+    border:none;
+    border-right:1px solid #aaa;
+    border-top-left-radius:4px;
+    border-bottom-left-radius:4px;
+    color:#999;
+    cursor:pointer;
+    font-size:1em;
+    font-weight:bold;
+    padding:0 4px;
+    position:absolute;
+    left:0;
+    top:0
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover,.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:focus{
+    background-color:#f1f1f1;
+    color:#333;
+    outline:none
+}
+.select2-container--default[dir="rtl"] .select2-selection--multiple .select2-selection__choice{
+    margin-left:5px;
+    margin-right:auto
+}
+.select2-container--default[dir="rtl"] .select2-selection--multiple .select2-selection__choice__display{
+    padding-left:5px;
+    padding-right:2px
+}
+.select2-container--default[dir="rtl"] .select2-selection--multiple .select2-selection__choice__remove{
+    border-left:1px solid #aaa;
+    border-right:none;
+    border-top-left-radius:0;
+    border-bottom-left-radius:0;
+    border-top-right-radius:4px;
+    border-bottom-right-radius:4px
+}
+.select2-container--default[dir="rtl"] .select2-selection--multiple .select2-selection__clear{
+    float:left;
+    margin-left:10px;
+    margin-right:auto
+}
+.select2-container--default.select2-container--focus .select2-selection--multiple{
+    border:solid black 1px;
+    outline:0
+}
+.select2-container--default.select2-container--disabled .select2-selection--multiple{
+    background-color:#eee;
+    cursor:default
+}
+.select2-container--default.select2-container--disabled .select2-selection__choice__remove{
+    display:none
+}
+.select2-container--default.select2-container--open.select2-container--above .select2-selection--single,.select2-container--default.select2-container--open.select2-container--above .select2-selection--multiple{
+    border-top-left-radius:0;
+    border-top-right-radius:0
+}
+.select2-container--default.select2-container--open.select2-container--below .select2-selection--single,.select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple{
+    border-bottom-left-radius:0;
+    border-bottom-right-radius:0
+}
+.select2-container--default .select2-search--dropdown .select2-search__field{
+    border:1px solid #aaa
+}
+.select2-container--default .select2-search--inline .select2-search__field{
+    background:transparent;
+    border:none;
+    outline:0;
+    box-shadow:none;
+    -webkit-appearance:textfield
+}
+.select2-container--default .select2-results>.select2-results__options{
+    max-height:200px;
+    overflow-y:auto
+}
+.select2-container--default .select2-results__option .select2-results__option{
+    padding-left:1em
+}
+.select2-container--default .select2-results__option .select2-results__option .select2-results__group{
+    padding-left:0
+}
+.select2-container--default .select2-results__option .select2-results__option .select2-results__option{
+    margin-left:-1em;
+    padding-left:2em
+}
+.select2-container--default .select2-results__option .select2-results__option .select2-results__option .select2-results__option{
+    margin-left:-2em;
+    padding-left:3em
+}
+.select2-container--default .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option{
+    margin-left:-3em;
+    padding-left:4em
+}
+.select2-container--default .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option{
+    margin-left:-4em;
+    padding-left:5em
+}
+.select2-container--default .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option{
+    margin-left:-5em;
+    padding-left:6em
+}
+.select2-container--default .select2-results__option--group{
+    padding:0
+}
+.select2-container--default .select2-results__option--disabled{
+    color:#999
+}
+.select2-container--default .select2-results__option--selected{
+    background-color:#ddd
+}
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable{
+    background-color:#5897fb;
+    color:white
+}
+.select2-container--default .select2-results__group{
+    cursor:default;
+    display:block;
+    padding:6px
+}
+
+    </style>
+</head>
+<body>
+    <main class="main">
+        <section class="registration container__white">
+            <div class="">
+                <div class="flex registration__head">
+                    <h2 class="registration__title">
+                        Редактирование данных
+                    </h2>
+                    <button class="authorization__close button-reset">
+                        <svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M41 4.12929L36.8707 0L20.5 16.3707L4.12929 0L0 4.12929L16.3707 20.5L0 36.8707L4.12929 41L20.5 24.6293L36.8707 41L41 36.8707L24.6293 20.5L41 4.12929Z" fill="#EF476F"/>
+                            </svg>
+                    </button>
+                </div>
+                <div class="flex registration__photo-edit">
+                    <img src="./img/user 1.jpg" alt="" class="account__student-photo">
+                    <p class="account__student-link ">
+                        Загрузить картинку
+                    </p>
+                </div>
+                <form action="{% url 'lk_account_student_edit' %}" method="post">
+                    {% csrf_token %}
+                    <div>
+                        <ul class="list-reset registration__list">
+                            <li class="registration__items flex web-adaptive">
+                                <p class="registration__text">
+                                    Имя
+                                </p>
+                                <div class="registration__input-remark">
+                                    <!-- type="text" -->
+                                    <input type="text" name="first_name" id="first_name" placeholder="first_name" value="{{ user.profile.first_name }}"/>
+                                    <p class="registration__remark">
+                                        Доступны только русские символы
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="registration__items flex web-adaptive">
+                                <p class="registration__text">
+                                    Фамилия
+                                </p>
+                                <div class="registration__input-remark">
+                                    <!-- type="text" -->
+                                    <input type="text" name="last_name" id="last_name" placeholder="last_name" value="{{ user.profile.last_name }}"/>
+                                    <p class="registration__remark">
+                                        Доступны только русские символы
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="registration__items flex web-adaptive">
+                                <p class="registration__text">
+                                    Отчество*
+                                </p>
+                                <div class="registration__input-remark">
+                                    <!-- type="text" -->
+                                    <input type="text" name="patronymic_name" id="patronymic_name" placeholder="patronymic_name"/>
+                                    <p class="registration__remark">
+                                        Доступны только русские символы<br>
+                                        *при наличии
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="registration__items flex web-adaptive">
+                                <p class="registration__text">
+                                    Телефон
+                                </p>
+                                <div class="registration__input-remark">
+                                    <!-- type="text" -->
+                                    <input type="text" name="phone" id="phone" placeholder="phone" value="{{ user.profile.phone }}"/>
+                                    <p class="registration__remark">
+                                        Формат +7 XXX XXX-XX-XX
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="registration__items flex web-adaptive">
+                                <p class="registration__text">
+                                    Учебное заведение
+                                </p>
+                                <div class="registration__input-remark">
+                                    <input type="text" name="university" id="university" placeholder="university" value="{{ user.profile.university }}"/>
+                                </div>
+                            </li>
+                            <li class="registration__items flex web-adaptive">
+                                <p class="registration__text">
+                                    Факультет
+                                </p>
+                                <div class="registration__input-remark">
+                                    <!-- type="text" -->
+                                    <input type="text" name="university_faculty" id="university_faculty" placeholder="university_faculty" value="{{ user.profile.university_faculty }}"/>
+                                </div>
+                            </li>
+                            <li class="registration__items flex web-adaptive">
+                                <p class="registration__text">
+                                    Специальность
+                                </p>
+                                <div class="registration__input-remark">
+                                    <!-- type="text" -->
+                                    <input type="text" name="university_specitality" id="university_specitality" placeholder="university_specitality" value="{{ user.profile.university_specitality }}"/>
+                                </div>
+                            </li>
+                            <li class="registration__items flex web-adaptive">
+                                <p class="registration__text">
+                                    Курс
+                                </p>
+                                <div class="registration__input-remark">
+                                    <!-- type="text" -->
+                                    <select name="university_course" id="university_course">
+                                        <option value="2 курс">2 курс</option>
+                                        <option value="3 курс">3 курс</option>
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="registration__button-position flex">
+                        <input type="submit" value="Сохранить изменения" class="registration__button">
+                    </div>
+                </form>
+            </div>
+        </section>     
+    </main>
+    <script>
+        window.addEventListener("DOMContentLoaded", function() {
+    $(function(){
+        $("#phone").mask("+7 (999) 999-99-99");
+    });
+
+    $(document).ready(function() {
+        $('.educate').select2();
+    });
+
+    $(document).ready(function() {
+        $('.educate-stage').select2();
+    });
+});
+
+
+/*
+    jQuery Masked Input Plugin
+    Copyright (c) 2007 - 2015 Josh Bush (digitalbush.com)
+    Licensed under the MIT license (http://digitalbush.com/projects/masked-input-plugin/#license)
+    Version: 1.4.1
+*/
+!function(a){"function"==typeof define&&define.amd?define(["jquery"],a):a("object"==typeof exports?require("jquery"):jQuery)}(function(a){var b,c=navigator.userAgent,d=/iphone/i.test(c),e=/chrome/i.test(c),f=/android/i.test(c);a.mask={definitions:{9:"[0-9]",a:"[A-Za-z]","*":"[A-Za-z0-9]"},autoclear:!0,dataName:"rawMaskFn",placeholder:"_"},a.fn.extend({caret:function(a,b){var c;if(0!==this.length&&!this.is(":hidden"))return"number"==typeof a?(b="number"==typeof b?b:a,this.each(function(){this.setSelectionRange?this.setSelectionRange(a,b):this.createTextRange&&(c=this.createTextRange(),c.collapse(!0),c.moveEnd("character",b),c.moveStart("character",a),c.select())})):(this[0].setSelectionRange?(a=this[0].selectionStart,b=this[0].selectionEnd):document.selection&&document.selection.createRange&&(c=document.selection.createRange(),a=0-c.duplicate().moveStart("character",-1e5),b=a+c.text.length),{begin:a,end:b})},unmask:function(){return this.trigger("unmask")},mask:function(c,g){var h,i,j,k,l,m,n,o;if(!c&&this.length>0){h=a(this[0]);var p=h.data(a.mask.dataName);return p?p():void 0}return g=a.extend({autoclear:a.mask.autoclear,placeholder:a.mask.placeholder,completed:null},g),i=a.mask.definitions,j=[],k=n=c.length,l=null,a.each(c.split(""),function(a,b){"?"==b?(n--,k=a):i[b]?(j.push(new RegExp(i[b])),null===l&&(l=j.length-1),k>a&&(m=j.length-1)):j.push(null)}),this.trigger("unmask").each(function(){function h(){if(g.completed){for(var a=l;m>=a;a++)if(j[a]&&C[a]===p(a))return;g.completed.call(B)}}function p(a){return g.placeholder.charAt(a<g.placeholder.length?a:0)}function q(a){for(;++a<n&&!j[a];);return a}function r(a){for(;--a>=0&&!j[a];);return a}function s(a,b){var c,d;if(!(0>a)){for(c=a,d=q(b);n>c;c++)if(j[c]){if(!(n>d&&j[c].test(C[d])))break;C[c]=C[d],C[d]=p(d),d=q(d)}z(),B.caret(Math.max(l,a))}}function t(a){var b,c,d,e;for(b=a,c=p(a);n>b;b++)if(j[b]){if(d=q(b),e=C[b],C[b]=c,!(n>d&&j[d].test(e)))break;c=e}}function u(){var a=B.val(),b=B.caret();if(o&&o.length&&o.length>a.length){for(A(!0);b.begin>0&&!j[b.begin-1];)b.begin--;if(0===b.begin)for(;b.begin<l&&!j[b.begin];)b.begin++;B.caret(b.begin,b.begin)}else{for(A(!0);b.begin<n&&!j[b.begin];)b.begin++;B.caret(b.begin,b.begin)}h()}function v(){A(),B.val()!=E&&B.change()}function w(a){if(!B.prop("readonly")){var b,c,e,f=a.which||a.keyCode;o=B.val(),8===f||46===f||d&&127===f?(b=B.caret(),c=b.begin,e=b.end,e-c===0&&(c=46!==f?r(c):e=q(c-1),e=46===f?q(e):e),y(c,e),s(c,e-1),a.preventDefault()):13===f?v.call(this,a):27===f&&(B.val(E),B.caret(0,A()),a.preventDefault())}}function x(b){if(!B.prop("readonly")){var c,d,e,g=b.which||b.keyCode,i=B.caret();if(!(b.ctrlKey||b.altKey||b.metaKey||32>g)&&g&&13!==g){if(i.end-i.begin!==0&&(y(i.begin,i.end),s(i.begin,i.end-1)),c=q(i.begin-1),n>c&&(d=String.fromCharCode(g),j[c].test(d))){if(t(c),C[c]=d,z(),e=q(c),f){var k=function(){a.proxy(a.fn.caret,B,e)()};setTimeout(k,0)}else B.caret(e);i.begin<=m&&h()}b.preventDefault()}}}function y(a,b){var c;for(c=a;b>c&&n>c;c++)j[c]&&(C[c]=p(c))}function z(){B.val(C.join(""))}function A(a){var b,c,d,e=B.val(),f=-1;for(b=0,d=0;n>b;b++)if(j[b]){for(C[b]=p(b);d++<e.length;)if(c=e.charAt(d-1),j[b].test(c)){C[b]=c,f=b;break}if(d>e.length){y(b+1,n);break}}else C[b]===e.charAt(d)&&d++,k>b&&(f=b);return a?z():k>f+1?g.autoclear||C.join("")===D?(B.val()&&B.val(""),y(0,n)):z():(z(),B.val(B.val().substring(0,f+1))),k?b:l}var B=a(this),C=a.map(c.split(""),function(a,b){return"?"!=a?i[a]?p(b):a:void 0}),D=C.join(""),E=B.val();B.data(a.mask.dataName,function(){return a.map(C,function(a,b){return j[b]&&a!=p(b)?a:null}).join("")}),B.one("unmask",function(){B.off(".mask").removeData(a.mask.dataName)}).on("focus.mask",function(){if(!B.prop("readonly")){clearTimeout(b);var a;E=B.val(),a=A(),b=setTimeout(function(){B.get(0)===document.activeElement&&(z(),a==c.replace("?","").length?B.caret(0,a):B.caret(a))},10)}}).on("blur.mask",v).on("keydown.mask",w).on("keypress.mask",x).on("input.mask paste.mask",function(){B.prop("readonly")||setTimeout(function(){var a=A(!0);B.caret(a),h()},0)}),e&&f&&B.off("input.mask").on("input.mask",u),A()})}})});
+    </script>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="jquery.maskedinput.min.js"></script>    
+</body>
+</html>

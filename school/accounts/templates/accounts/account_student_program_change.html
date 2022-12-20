@@ -1,0 +1,1321 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>U Summer School</title>
+    <link rel="stylesheet" href="https://unpkg.com/accordion-js@3.3.2/dist/accordion.min.css">
+    <link rel="stylesheet" href="css/selection.css">
+    <style>
+        html {
+    box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+:root {
+    --white: #FFFFFF;
+    --pink: #EF476F;
+    --blue: #3F43C5;
+    --black: #000000;
+    --green: #3EDAA2;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: local("Montserrat-ExtraBold"),
+      url("{% static 'users/fonts/montserrat-v21-latin_cyrillic-800.woff2' %}") format("woff2"),
+      url("{% static 'users/fonts/montserrat-v21-latin_cyrillic-800.woff' %}") format("woff");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: local("Montserrat-Bold"),
+      url("{% static 'users/fonts/montserrat-v21-latin_cyrillic-700.woff2' %}") format("woff2"),
+      url("{% static 'users/fonts/montserrat-v21-latin_cyrillic-700.woff' %}") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: local("Montserrat-SemiBold"),
+      url("{% static 'users/fonts/montserrat-v21-latin_cyrillic-600.woff2' %}") format("woff2"),
+      url("{% static 'users/fonts/montserrat-v21-latin_cyrillic-600.woff' %}") format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: local("Montserrat-Regular"),
+        url("{% static 'users/fonts/montserrat-v21-latin_cyrillic-regular.woff2' %}") format("woff2"),
+        url("{% static 'users/fonts/montserrat-v21-latin_cyrillic-regular.woff' %}") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src:  url("{% static 'users/fonts/Montserrat-Medium.ttf' %}");
+}
+
+@font-face {
+    font-family: QuinqueFive;
+    src:  url("{% static 'users/fonts/QuinqueFive.ttf' %}");
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--white);
+    margin: 0 auto;
+    min-width: 1800px;
+}
+
+input {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    margin: 0
+}
+
+.button-reset {
+    padding: 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: transparent;
+}
+
+.list-reset {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.container__blue {
+    background-color: var(--blue);
+    margin: 0 auto;
+    width: 100%;
+    margin-bottom: 100px;
+    min-width: 1800px;
+}
+
+.container__blue-footer {
+    background-color: var(--blue);
+    margin: 0 auto;
+    width: 100%;
+}
+
+.container__white {
+    background-color: var(--white);
+    margin: 0 auto;
+    width: 100%;
+    margin-bottom: 130px;
+}
+
+.web-adaptive-header {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-left: -201px;
+}
+
+.web-adaptive {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+/* Header */
+
+.header__position-home {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header__menu {
+    height: 160px;
+    align-items: center;
+
+}
+
+.header__link-logo {
+    margin-left: 130px;
+}
+
+.header__menu-right {
+    margin-right: 124px;
+}
+
+.header__button {
+    font-size: 24px;
+    padding: 24px 56px 24px 56px;
+    color: var(--white);
+    background-color: var(--pink);
+    border-radius: 12px;
+    border-style: solid;
+    border-color: var(--pink);
+    cursor: pointer;
+    font-weight: 600;
+    transition: border-color .2s linear, background-color .2s linear;
+}
+
+.header__button:focus {
+    background-color: #FF6489;
+    border-color: #FF6489;
+}
+
+.header__button:hover {
+    background-color: #FF6489;
+    border-color: #FF6489;
+}
+
+.header__button:active {
+    background-color: #CE3D60;
+    border-color:#CE3D60;
+}
+
+.header__link {
+    color: var(--white);
+    font-size: 24px;
+    margin-right: 60px;
+    font-weight: 600;
+}
+
+.header__link-home {
+    color: var(--white);
+    font-size: 24px;
+    margin-right: 350px;
+    font-weight: 600;
+}
+
+.header__content {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header__content-title {
+    font-size: 140px;
+    color: var(--white);
+    margin-left: 184px;
+    margin-bottom: 36px;
+    font-weight: 700;
+}
+
+
+.header__content-img {
+    margin-left: 142px;
+}
+
+.header__content-text {
+    margin-left: 184px;
+    max-width: 704px;
+    font-size: 28px;
+    color: var(--white);
+    margin-top: -60px;
+    font-weight: 500;
+}
+
+.header__content-arrow {
+    margin-left: 940px;
+    padding-bottom: 124px;
+    margin-top: 147px;
+}
+
+/* registration */
+
+.registration__title {
+    font-size: 80px;
+    font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 40px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.registration__items {
+    flex-wrap: wrap;
+    gap: 0px 32px;
+    max-width: 968px;
+    justify-content: start;
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-bottom: 30px;
+}
+
+.registration__items:last-child {
+    margin-bottom: 80px;
+}
+
+.registration__input {
+    height: 60px;
+    width: 42px;
+    border-radius: 12px;
+    border: 2px solid var(--blue);
+    border-color:var(--blue);
+    padding-left: 15px;
+    margin-right: 30px;
+}
+
+.registration__input:focus {
+    border: 3px solid var(--blue);
+    border-color:var(--blue);
+    outline: none;
+}
+
+.registration__text {
+    color: var(--blue);
+    font-weight: 500;
+    font-size: 28px;
+    padding-top: 13px;
+}
+
+.registration__remark {
+    color: var(--blue);
+    font-weight: 400;
+    font-size: 18px;
+    max-width: 520px;
+}
+
+.registration__stage {
+    background-color: var(--pink);
+    border-style: solid;
+    border-color: var(--pink);
+    padding: 12px 9px 15px 18px;
+    display: inline-block;
+    font-family: QuinqueFive;
+    font-weight: 400;
+    font-size: 30px;
+    color: var(--white);
+}
+
+.registration__img-box {
+    margin-right: 42px;
+}
+
+.registration__img-line {
+    justify-content: end center;
+}
+
+.registration__img-group {
+    align-items: center;
+}
+
+.registration__list-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 42px;
+    align-items: center;
+    margin-bottom: 80px;
+
+}
+
+.registration__button {
+    font-size: 24px;
+    padding: 24px 56px 24px 56px;
+    color: var(--white);
+    background-color: var(--pink);
+    border-radius: 12px;
+    border-style: solid;
+    border-color: var(--pink);
+    cursor: pointer;
+    font-weight: 600;
+    transition: border-color .2s linear, background-color .2s linear;
+    position: relative;
+}
+
+.registration__button-position {
+    gap: 0px 60px;
+    justify-content: center;
+}
+
+.registration__button:focus {
+    background-color: #FF6489;
+    border-color: #FF6489;
+}
+
+.registration__button:hover {
+    background-color: #FF6489;
+    border-color: #FF6489;
+}
+
+.registration__button:active {
+    background-color: #CE3D60;
+    border-color:#CE3D60;
+}
+
+.ch__box {
+    background-image: url("../img/Default.svg");
+    background-repeat: no-repeat;
+}
+
+.custom-checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    width: 42px;
+    height: 42px;
+}
+
+.custom-checkbox+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+}
+
+.custom-checkbox+label::before {
+    content: '';
+    display: inline-block;
+    width: 42px;
+    height: 42px;
+    border: 4px solid var(--blue);
+    margin-right: 1em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 110% 110%;
+}
+
+.custom-checkbox:checked+label::before {
+    background-image: url("{% static 'users/img/Active.svg' %}");
+    min-height: 100%;
+    min-height: 100%;
+}
+
+.registration__input-hint {
+    padding-top: 15px;
+}
+
+.registration__input-hint {
+    display: inline-block; /* Строчно-блочный элемент */
+    position: relative; /* Относительное позиционирование */
+   }
+
+.registration__input-hint:hover::after {
+    width: 350px;
+    content: attr(data-title); /* Выводим текст */
+    position: absolute; /* Абсолютное позиционирование */
+    left: 60%; top: 70%; /* Положение подсказки */
+    z-index: 1; /* Отображаем подсказку поверх других элементов */
+    background: rgba(255, 255, 255, 0.9); /* Полупрозрачный цвет фона */
+    font-family: Montserrat; /* Гарнитура шрифта */
+    font-size: 16px; /* Размер текста подсказки */
+    padding: 5px 10px; /* Поля */
+    border: 1px solid var(--blue); /* Параметры рамки */
+    color: var(--blue);
+}
+
+@media screen and (max-width: 1680px) and (max-height: 1050px){
+    body {
+        zoom: 87%;
+    }
+}
+
+@media screen and (max-width: 1600px) and (max-height: 1024px){
+    body {
+        zoom: 84%
+    }
+
+    .about__school-list {
+        gap: 25px 100px;
+    }
+}
+
+@media screen and (max-width: 1600px) and (max-height: 900px){
+    body {
+        zoom: 80%;
+    }
+}
+
+@media screen and (max-width: 1440px) and (max-height: 900px){
+    body {
+        zoom: 76%;
+    }
+}
+
+@media screen and (max-width: 1366px) and (max-height: 768px){
+    body {
+        zoom: 67%;
+    }
+}
+
+
+@media screen and (max-width: 1280px) and (max-height: 1024px){
+    body {
+        zoom: 66%;
+    }
+}
+
+.select2-container{
+    box-sizing:border-box;
+    display:inline-block;
+    margin:0;
+    position:relative;
+    vertical-align:middle;
+}
+.select2-container .select2-selection--single{
+    box-sizing:border-box;
+    cursor:pointer;
+    display:flex;
+    height:60px;
+    border-radius: 12px;
+    user-select:none;
+    align-items: center;
+    padding-left: 7px;
+    -webkit-user-select:none
+}
+.select2-container .select2-selection--single .select2-selection__rendered{
+    display:block;
+    padding-left:8px;
+    padding-right:20px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap
+}
+.select2-container .select2-selection--single .select2-selection__clear{
+    background-color:transparent;
+    border:none;
+    font-size:1em
+}
+.select2-container[dir="rtl"] .select2-selection--single .select2-selection__rendered{
+    padding-right:8px;
+    padding-left:20px
+}
+.select2-container .select2-selection--multiple{
+    box-sizing:border-box;
+    cursor:pointer;
+    display:block;
+    min-height:32px;
+    user-select:none;
+    -webkit-user-select:none
+}
+.select2-container .select2-selection--multiple .select2-selection__rendered{
+    display:inline;
+    list-style:none;
+    padding:0
+}
+.select2-container .select2-selection--multiple .select2-selection__clear{
+    background-color:transparent;
+    border:none;
+    font-size:1em
+}
+.select2-container .select2-search--inline .select2-search__field{
+    box-sizing:border-box;
+    border:none;
+    font-size:100%;
+    margin-top:5px;
+    margin-left:5px;
+    padding:0;
+    max-width:100%;
+    resize:none;
+    height:18px;
+    vertical-align:bottom;
+    font-family:sans-serif;
+    overflow:hidden;
+    word-break:keep-all
+}
+.select2-container .select2-search--inline .select2-search__field::-webkit-search-cancel-button{
+    -webkit-appearance:none
+}
+.select2-dropdown{
+    background-color:white;
+    border:2px solid #3F43C5;
+    border-radius:12px;
+    box-sizing:border-box;
+    display:block;
+    position:absolute;
+    left:-100000px;
+    width:100%;
+    z-index:1051
+}
+.select2-results{
+    display:block
+}
+.select2-results__options{
+    list-style:none;
+    margin:0;
+    padding:0
+}
+.select2-results__option{
+    padding:6px;
+    user-select:none;
+    -webkit-user-select:none;
+}
+.select2-results__option--selectable{
+    cursor:pointer
+}
+.select2-container--open .select2-dropdown{
+    left:0
+}
+.select2-container--open .select2-dropdown--above{
+    border-bottom:none;
+    border-bottom-left-radius:0;
+    border-bottom-right-radius:0
+}
+.select2-container--open .select2-dropdown--below{
+    border-top:none;
+    border-top-left-radius:0;
+    border-top-right-radius:0
+}
+.select2-search--dropdown{
+    display:block;
+    padding:4px
+}
+.select2-search--dropdown .select2-search__field{
+    padding:4px;
+    width:100%;
+    box-sizing:border-box
+}
+.select2-search--dropdown .select2-search__field::-webkit-search-cancel-button{
+    -webkit-appearance:none
+}
+.select2-search--dropdown.select2-search--hide{
+    display:none
+}
+.select2-close-mask{
+    border:0;
+    margin:0;
+    padding:0;
+    display:block;
+    position:fixed;
+    left:0;
+    top:0;
+    min-height:100%;
+    min-width:100%;
+    height:auto;
+    width:auto;
+    opacity:0;
+    z-index:99;
+    background-color:#fff;
+    filter:alpha(opacity=0)
+}
+.select2-hidden-accessible{
+    border:0 !important;
+    clip:rect(0 0 0 0) !important;
+    -webkit-clip-path:inset(50%) !important;
+    clip-path:inset(50%) !important;
+    height:1px !important;
+    overflow:hidden !important;
+    padding:0 !important;
+    position:absolute !important;
+    width:1px !important;
+    white-space:nowrap !important
+}
+.select2-container--default .select2-selection--single{
+    background-color:#fff;
+    border:2px solid #3F43C5;
+    border-radius:12px
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+    color:black;
+    line-height:28px
+}
+.select2-container--default .select2-selection--single .select2-selection__clear{
+    cursor:pointer;
+    float:right;
+    font-weight:bold;
+    height:26px;
+    margin-right:20px;
+    padding-right:0px
+}
+.select2-container--default .select2-selection--single .select2-selection__placeholder{
+    color:black
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow{
+    height:26px;
+    position:absolute;
+    top:18px;
+    right:5px;
+    width:20px
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow b{
+    border-color:#3F43C5 transparent transparent transparent;
+    border-style:solid;
+    border-width:10px 8px 0 8px;
+    height:0;
+    left:50%;
+    margin-left:-18px;
+    margin-top:-6px;
+    position:absolute;
+    top:50%;
+    width:0
+}
+.select2-container--default[dir="rtl"] .select2-selection--single .select2-selection__clear{
+    float:left
+}
+.select2-container--default[dir="rtl"] .select2-selection--single .select2-selection__arrow{
+    left:1px;
+    right:auto
+}
+.select2-container--default.select2-container--disabled .select2-selection--single{
+    background-color:#eee;
+    cursor:default
+}
+.select2-container--default.select2-container--disabled .select2-selection--single .select2-selection__clear{
+    display:none
+}
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
+    border-color:transparent transparent #3F43C5 transparent;
+    border-width:0 8px 10px 8px;
+}
+.select2-container--default .select2-selection--multiple{
+    background-color:white;
+    border:2px solid #3F43C5;
+    border-radius:12px;
+    cursor:text;
+    padding-bottom:5px;
+    padding-right:5px;
+    position:relative
+}
+.select2-container--default .select2-selection--multiple.select2-selection--clearable{
+    padding-right:25px
+}
+.select2-container--default .select2-selection--multiple .select2-selection__clear{
+    cursor:pointer;
+    font-weight:bold;
+    height:20px;
+    margin-right:10px;
+    margin-top:5px;
+    position:absolute;
+    right:0;
+    padding:1px
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice{
+    background-color:#e4e4e4;
+    border:2px solid #3F43C5;
+    border-radius:12px;
+    box-sizing:border-box;
+    display:inline-block;
+    margin-left:5px;
+    margin-top:5px;
+    padding:0;
+    padding-left:20px;
+    position:relative;
+    max-width:100%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    vertical-align:bottom;
+    white-space:nowrap
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__display{
+    cursor:default;
+    padding-left:2px;
+    padding-right:5px
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove{
+    background-color:transparent;
+    border:none;
+    border-right:1px solid #aaa;
+    border-top-left-radius:4px;
+    border-bottom-left-radius:4px;
+    color:#999;
+    cursor:pointer;
+    font-size:1em;
+    font-weight:bold;
+    padding:0 4px;
+    position:absolute;
+    left:0;
+    top:0
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover,.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:focus{
+    background-color:#f1f1f1;
+    color:#333;
+    outline:none
+}
+.select2-container--default[dir="rtl"] .select2-selection--multiple .select2-selection__choice{
+    margin-left:5px;
+    margin-right:auto
+}
+.select2-container--default[dir="rtl"] .select2-selection--multiple .select2-selection__choice__display{
+    padding-left:5px;
+    padding-right:2px
+}
+.select2-container--default[dir="rtl"] .select2-selection--multiple .select2-selection__choice__remove{
+    border-left:1px solid #aaa;
+    border-right:none;
+    border-top-left-radius:0;
+    border-bottom-left-radius:0;
+    border-top-right-radius:4px;
+    border-bottom-right-radius:4px
+}
+.select2-container--default[dir="rtl"] .select2-selection--multiple .select2-selection__clear{
+    float:left;
+    margin-left:10px;
+    margin-right:auto
+}
+.select2-container--default.select2-container--focus .select2-selection--multiple{
+    border:solid black 1px;
+    outline:0
+}
+.select2-container--default.select2-container--disabled .select2-selection--multiple{
+    background-color:#eee;
+    cursor:default
+}
+.select2-container--default.select2-container--disabled .select2-selection__choice__remove{
+    display:none
+}
+.select2-container--default.select2-container--open.select2-container--above .select2-selection--single,.select2-container--default.select2-container--open.select2-container--above .select2-selection--multiple{
+    border-top-left-radius:0;
+    border-top-right-radius:0
+}
+.select2-container--default.select2-container--open.select2-container--below .select2-selection--single,.select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple{
+    border-bottom-left-radius:0;
+    border-bottom-right-radius:0
+}
+.select2-container--default .select2-search--dropdown .select2-search__field{
+    border:1px solid #aaa
+}
+.select2-container--default .select2-search--inline .select2-search__field{
+    background:transparent;
+    border:none;
+    outline:0;
+    box-shadow:none;
+    -webkit-appearance:textfield
+}
+.select2-container--default .select2-results>.select2-results__options{
+    max-height:200px;
+    overflow-y:auto
+}
+.select2-container--default .select2-results__option .select2-results__option{
+    padding-left:1em
+}
+.select2-container--default .select2-results__option .select2-results__option .select2-results__group{
+    padding-left:0
+}
+.select2-container--default .select2-results__option .select2-results__option .select2-results__option{
+    margin-left:-1em;
+    padding-left:2em
+}
+.select2-container--default .select2-results__option .select2-results__option .select2-results__option .select2-results__option{
+    margin-left:-2em;
+    padding-left:3em
+}
+.select2-container--default .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option{
+    margin-left:-3em;
+    padding-left:4em
+}
+.select2-container--default .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option{
+    margin-left:-4em;
+    padding-left:5em
+}
+.select2-container--default .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option{
+    margin-left:-5em;
+    padding-left:6em
+}
+.select2-container--default .select2-results__option--group{
+    padding:0
+}
+.select2-container--default .select2-results__option--disabled{
+    color:#999
+}
+.select2-container--default .select2-results__option--selected{
+    background-color:#ddd
+}
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable{
+    background-color:#5897fb;
+    color:white
+}
+.select2-container--default .select2-results__group{
+    cursor:default;
+    display:block;
+    padding:6px
+}
+
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+
+/* Document
+   ========================================================================== */
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+
+ html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+
+/**
+ * Remove the margin in all browsers.
+ */
+
+body {
+  margin: 0;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+
+main {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+
+a {
+  background-color: transparent;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+
+img {
+  border-style: none;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+button,
+input { /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+
+button,
+select { /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+
+details {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+
+summary {
+  display: list-item;
+}
+
+/* Misc
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 10+.
+ */
+
+template {
+  display: none;
+}
+
+/**
+ * Add the correct display in IE 10.
+ */
+
+[hidden] {
+  display: none;
+}
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="">
+            <div class="container__blue header__card">
+                <div class="header__menu flex">
+                    <a href="#" class="header__link-logo">
+                        <img src="{% static 'users/img/header__logo.svg' %}" alt="Logo" class="header__logo" >
+                    </a>
+                    <div class="header__position-home">
+                        <a href="#" class="header__link-home">
+                            Главная страница
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <section class="registration web-adaptive">
+            <div class="container__white">
+                <div class="flex">
+                    <h2 class="registration__title">
+                        Регистрация
+                    </h2>
+                </div>
+                <div class="web-adaptive">
+                    <ul class="list-reset registration__list-form flex">
+                        <li class="test">
+                            <div class="flex registration__img-group">
+                                <svg class="registration__img-box" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="36" height="36" fill="#3EDAA2"/>
+                                    </svg>
+                                <svg class="registration__img-line" width="362" height="9" viewBox="0 0 362 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="362" height="9" fill="#3F43C5"/>
+                                </svg>
+                            </div>
+                        </li>
+                        <li class="test">
+                            <div class="flex registration__img-group">
+                                <svg class="registration__img-box" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="36" height="36" fill="#3EDAA2"/>
+                                    </svg>
+                                <svg class="registration__img-line" width="362" height="9" viewBox="0 0 362 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="362" height="9" fill="#3F43C5"/>
+                                    </svg>
+                            </div>
+                        </li>
+                        <li class="test">
+                            <div class="flex registration__img-group">
+                                <p class="registration__stage registration__img-box">
+                                    3
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    {% for i in programs %}
+                    {{ i }}
+                    {% endfor %}
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <ul class="list-reset registration__list">
+                        {% for program in blya %}
+                            <li class="registration__items flex web-adaptive">
+                                <div class="registration__input-remark">
+                                    {% if program.pk in programs %}
+                                        <input type="checkbox" class="registration__input custom-checkbox" id="{{ program.title }}" name="test" value="{{ program.title }}" checked>
+                                    {% else %}
+                                        <input type="checkbox" class="registration__input custom-checkbox" id="{{ program.title }}" name="test" value="{{ program.title }}">
+                                    {% endif %}
+                                    <label class="registration__text" for="{{ program.title }}">{{ program.title }} {{ programs.objects.all }}</label>
+                                </div>
+                                <div class="registration__input-hint" data-title="Говорят, что безопасная разработка, разворачиваемая на эпохах прошлого столетия никогда не станет важным атрибутом нашей истории.">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.0002 0.333374C5.56016 0.333374 0.333496 5.56004 0.333496 12C0.333496 18.44 5.56016 23.6667 12.0002 23.6667C18.4402 23.6667 23.6668 18.44 23.6668 12C23.6668 5.56004 18.4402 0.333374 12.0002 0.333374ZM13.1668 17.8334H10.8335V10.8334H13.1668V17.8334ZM13.1668 8.50004H10.8335V6.16671H13.1668V8.50004Z" fill="#3F43C5"/>
+                                    </svg>
+                                </div>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                        <input type="submit" value="Submit">
+                        
+                    </form>
+                </div>
+                <div class="registration__button-position flex">
+                    <button class="registration__button">Назад</button>
+                    <button class="registration__button">Завершить регистрацию</button>
+                    <button class="registration__button">Пропустить</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="jquery.maskedinput.min.js"></script>
+
+    <script>
+    </script>
+</body>
+</html>

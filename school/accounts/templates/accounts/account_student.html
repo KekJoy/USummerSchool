@@ -1,0 +1,180 @@
+{% load static %}
+{% load has_group %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'users/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'users/css/style.css' %}">
+    <title>U Summer School</title>
+    <link rel="stylesheet" href="https://unpkg.com/accordion-js@3.3.2/dist/accordion.min.css">
+</head>
+<body>
+{% if request.user|has_group:"Student" %}
+    <header class="header">
+        <div class="">
+            <div class="container__blue header__card">
+                <div class="header__menu flex">
+                    <a href="{% url 'home' %}" class="header__link-logo">
+                        <img src="{% static 'users/img/header__logo.svg' %}" alt="Logo" class="header__logo" >
+                    </a>
+                    <div class="header__position-home">
+                        <a href="{% url 'home' %}" class="header__link-home">
+                            Главная страница
+                        </a>
+                    </div>
+                </div>                           
+            </div>
+        </div>
+    </header>
+
+    <a href="{% url 'lk_account_student_edit_programs' %}">Сменить направления</a>
+
+    <main class="main">
+        <section class="account__student">
+            <div class="container__white">
+                <div class="web-adaptive">
+                    <div class="flex account__student-maintenance">
+                        <h2 class="account__student-title">
+                            Профиль
+                        </h2>
+                        <div class="account__student-data-change">
+                            <p class="">
+                                <a href="{% url 'lk_account_student_edit' %}" class="flex account__student-link">
+                                    <svg width="48" height="51" viewBox="0 0 48 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M42.3508 27.9479C42.4536 27.1667 42.505 26.3594 42.505 25.5C42.505 24.6667 42.4536 23.8333 42.3251 23.0521L47.5425 18.9375C48.0051 18.5729 48.1337 17.8698 47.8509 17.349L42.9163 8.70312C42.6078 8.13021 41.9653 7.94792 41.3999 8.13021L35.2572 10.6302C33.9722 9.64062 32.61 8.80729 31.0936 8.18229L30.1683 1.56771C30.0655 0.942708 29.5515 0.5 28.9347 0.5H19.0653C18.4485 0.5 17.9602 0.942708 17.8574 1.56771L16.9321 8.18229C15.4157 8.80729 14.0278 9.66667 12.7685 10.6302L6.62583 8.13021C6.0604 7.92187 5.41786 8.13021 5.10945 8.70312L0.200472 17.349C-0.107945 17.8958 -0.00513971 18.5729 0.508889 18.9375L5.72628 23.0521C5.59777 23.8333 5.49497 24.6927 5.49497 25.5C5.49497 26.3073 5.54637 27.1667 5.67488 27.9479L0.457486 32.0625C-0.00513965 32.4271 -0.133647 33.1302 0.149069 33.651L5.08374 42.2969C5.39216 42.8698 6.0347 43.0521 6.60013 42.8698L12.7428 40.3698C14.0278 41.3594 15.39 42.1927 16.9064 42.8177L17.8317 49.4323C17.9602 50.0573 18.4485 50.5 19.0653 50.5H28.9347C29.5515 50.5 30.0655 50.0573 30.1426 49.4323L31.0679 42.8177C32.5843 42.1927 33.9722 41.3594 35.2315 40.3698L41.3742 42.8698C41.9396 43.0781 42.5821 42.8698 42.8906 42.2969L47.8252 33.651C48.1337 33.0781 48.0051 32.4271 47.5168 32.0625L42.3508 27.9479ZM24 34.875C18.9111 34.875 14.7475 30.6562 14.7475 25.5C14.7475 20.3438 18.9111 16.125 24 16.125C29.0889 16.125 33.2525 20.3438 33.2525 25.5C33.2525 30.6562 29.0889 34.875 24 34.875Z" fill="#EF476F"/>
+                                        </svg>
+                                    Настроить данные
+                                </a>
+                            </p>
+                        </div>
+                        <div class="account__student-exit">
+                            <p class="">
+                                <a href="{% url 'logout' %}" class="flex account__student-link account__student-link-exit">
+                                    <svg width="50" height="51" viewBox="0 0 50 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M19.6944 35.4722L23.6111 39.3889L37.5 25.5L23.6111 11.6111L19.6944 15.5278L26.8611 22.7222H0V28.2778H26.8611L19.6944 35.4722ZM44.4444 0.5H5.55556C2.47222 0.5 0 3 0 6.05556V17.1667H5.55556V6.05556H44.4444V44.9444H5.55556V33.8333H0V44.9444C0 48 2.47222 50.5 5.55556 50.5H44.4444C47.5 50.5 50 48 50 44.9444V6.05556C50 3 47.5 0.5 44.4444 0.5Z" fill="#EF476F"/>
+                                    </svg>
+                                    Выйти</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="web-adaptive">
+                    <div class="account__student-personal-info flex">
+                        <img src="{% static 'users/img/user 1.jpg' %}" alt="" class="account__student-photo ">
+                        <div class="account__student-info">
+                            <p class="account__student-name">
+                                {{ user.profile.last_name }} {{ user.profile.first_name }} {{ user.profile.patronymic_name }}
+                            </p>
+                            <p class="account__student-prefix account__student-tel">
+                                Телефон
+                            </p>
+                            <p class="account__student-text account__student-number">
+                                {{ user.profile.phone }}
+                            </p>
+                            <p class="account__student-prefix account__student-mail">
+                                Почта
+                            </p>
+                            <p class="account__student-text account__student-value">
+                                {{ user.email }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="web-adaptive">
+                    <div class="account__student-educate">
+                        <div>
+                            <p class="account__student-title-info account__student-educate-title">
+                                Сведения об образовании
+                            </p>
+                        </div>
+                        <div class="account__student-educate-info">
+                            
+                                <p class="account__student-prefix account__student-school">
+                                    Учебное заведение
+                                </p>
+                                <p class="account__student-text account__student-school-value">
+                                    {{ user.profile.university }}
+                                </p>
+                                <p class="account__student-prefix account__student-department">
+                                    Факультет
+                                </p>
+                                <p class="account__student-text account__student-department-value">
+                                    {{ user.profile.university_faculty }}
+                                </p>
+                                <p class="account__student-prefix account__student-specification">
+                                    Специальность
+                                </p>
+                                <p class="account__student-text account__student-specification-value">
+                                    {{ user.profile.university_specitality }}
+                                </p>
+                                <p class="account__student-prefix account__student-course">
+                                    Курс
+                                </p>
+                                <p class="account__student-text account__student-course-value">
+                                    {{ user.profile.university_course }}
+                                </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="web-adaptive">
+                    <div class="flex account__student-maintenance">
+                        <h2 class="account__student-title">
+                            Мои направления
+                        </h2>
+                        <div class="account__student-data-change">
+                            <p class="">
+                                <a href="" class="flex account__student-link">
+                                    <svg width="48" height="51" viewBox="0 0 48 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M42.3508 27.9479C42.4536 27.1667 42.505 26.3594 42.505 25.5C42.505 24.6667 42.4536 23.8333 42.3251 23.0521L47.5425 18.9375C48.0051 18.5729 48.1337 17.8698 47.8509 17.349L42.9163 8.70312C42.6078 8.13021 41.9653 7.94792 41.3999 8.13021L35.2572 10.6302C33.9722 9.64062 32.61 8.80729 31.0936 8.18229L30.1683 1.56771C30.0655 0.942708 29.5515 0.5 28.9347 0.5H19.0653C18.4485 0.5 17.9602 0.942708 17.8574 1.56771L16.9321 8.18229C15.4157 8.80729 14.0278 9.66667 12.7685 10.6302L6.62583 8.13021C6.0604 7.92187 5.41786 8.13021 5.10945 8.70312L0.200472 17.349C-0.107945 17.8958 -0.00513971 18.5729 0.508889 18.9375L5.72628 23.0521C5.59777 23.8333 5.49497 24.6927 5.49497 25.5C5.49497 26.3073 5.54637 27.1667 5.67488 27.9479L0.457486 32.0625C-0.00513965 32.4271 -0.133647 33.1302 0.149069 33.651L5.08374 42.2969C5.39216 42.8698 6.0347 43.0521 6.60013 42.8698L12.7428 40.3698C14.0278 41.3594 15.39 42.1927 16.9064 42.8177L17.8317 49.4323C17.9602 50.0573 18.4485 50.5 19.0653 50.5H28.9347C29.5515 50.5 30.0655 50.0573 30.1426 49.4323L31.0679 42.8177C32.5843 42.1927 33.9722 41.3594 35.2315 40.3698L41.3742 42.8698C41.9396 43.0781 42.5821 42.8698 42.8906 42.2969L47.8252 33.651C48.1337 33.0781 48.0051 32.4271 47.5168 32.0625L42.3508 27.9479ZM24 34.875C18.9111 34.875 14.7475 30.6562 14.7475 25.5C14.7475 20.3438 18.9111 16.125 24 16.125C29.0889 16.125 33.2525 20.3438 33.2525 25.5C33.2525 30.6562 29.0889 34.875 24 34.875Z" fill="#EF476F"/>
+                                    </svg>
+                                    Настроить направления
+                                </a>
+                            </p>
+                        </div>                 
+                    </div>
+                </div>
+                <div class="web-adaptive account__student-program-list">
+                    <div class="account__student-card">
+                        <div class="flex account__student-card-position">
+                            <p class="account__student-program">
+                                {{ user.profile.school_program }}
+                            </p>
+                            <p class="account__student-status">
+                                Не решено
+                            </p>
+                            <button class="account__student-button-check button-reset">
+                                Отправить на проверку
+                            </button>
+                            <button class="account__student-button button-reset">
+                                Подробнее
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>     
+    </main>
+    <footer>
+        <div class="container__blue-footer footer__position flex">
+            <a href="{% url 'home' %}" class="footer__logo">
+                <img src="{% static 'users/img/header__logo.svg' %}" alt="Logo" class="header__logo" >
+            </a>
+        </div>
+    </footer>
+
+{% elif request.user|has_group:"Curator" %}
+    <p>Куратор</p>
+{% elif request.user|has_group:"Administrator"%}
+    <p>Админ</p>
+{% else %}
+    <p>Ой да иди нахуй нечеловек</p>
+{% endif %}
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="{% static 'users/js/script.js' %}"></script>
+</body>
+</html>

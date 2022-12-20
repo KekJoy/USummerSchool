@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for program in programs %}
+    <tr class='success'>
+        <td>{{ program.id }}</td>
+        <td>{{ program.title }}</td>
+        <a href="{% url 'program' program.id %}">Бля</a>
+    </tr>
+{% endfor %}
+</body>
+</html>

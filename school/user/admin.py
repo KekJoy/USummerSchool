@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import TaskList, Programs
 
-# Register your models here.
+
+admin.site.register(Programs)
+admin.site.register(TaskList)

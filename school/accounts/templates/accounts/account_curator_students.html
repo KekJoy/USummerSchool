@@ -1,0 +1,23 @@
+{% load static %}
+{% load has_group %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  {% for student in students %}
+  {% if student.profile.user.is_active and request.user|has_group:"Student" and not student.profile.user.is_superuser%}
+  <div style="border: dashed red; margin-bottom: 10px;">
+    <p>Имя: {{ student.profile.first_name }}</p>
+    <p>Фамилия: {{ student.profile.last_name }}</p>
+    <p>Отчество: {{ student.profile.patronymic_name }}</p>
+    <p>Направление: {{ student.program_list.title }}</p>
+    <a href="{% url 'lk_account_curator_student_task' student.pk %}">Проверить тестовое задание</a>
+  </div>
+
+  {% endif %}
+  {% endfor %}
+</body>
+</html>

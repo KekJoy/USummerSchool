@@ -1,0 +1,62 @@
+{% load static %}
+{% load has_group %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% for task_answer in task_answers %}
+    <div style="border: dashed red; margin-bottom: 10px;">
+       <p>Название задания: {{ task_answer.task.title }}</p>
+       <p>Описание задания: {{ task_answer.task.description }}</p>
+       <p>Ответ студента: {{ task_answer.answer}}</p>
+        <form action="" method="post">
+            {% csrf_token %}
+            <p>Оценить ответ студента:</p>
+            <input type="text" name="token" id="{{ task_answer.id }}" value="{{ task_answer.id }}" hidden="">
+            {% if task_answer.grade == 'A' %}
+            <p><input type="radio" name="grade" id="A" value="A" checked> 5</p>
+            <p><input type="radio" name="grade" id="B" value="B" > 4</p>
+            <p><input type="radio" name="grade" id="C" value="C" > 3</p>
+            <p><input type="radio" name="grade" id="D" value="D" > 2</p>
+            <p><input type="radio" name="grade" id="F" value="F" > 1</p>
+            {% elif task_answer.grade == 'B' %}
+            <p><input type="radio" name="grade" id="A" value="A" > 5</p>
+            <p><input type="radio" name="grade" id="B" value="B" checked> 4</p>
+            <p><input type="radio" name="grade" id="C" value="C" > 3</p>
+            <p><input type="radio" name="grade" id="D" value="D" > 2</p>
+            <p><input type="radio" name="grade" id="F" value="F" > 1</p>
+            {% elif task_answer.grade == 'C' %}
+            <p><input type="radio" name="grade" id="A" value="A" > 5</p>
+            <p><input type="radio" name="grade" id="B" value="B" > 4</p>
+            <p><input type="radio" name="grade" id="C" value="C" checked> 3</p>
+            <p><input type="radio" name="grade" id="D" value="D" > 2</p>
+            <p><input type="radio" name="grade" id="F" value="F" > 1</p>
+            {% elif task_answer.grade == 'D' %}
+            <p><input type="radio" name="grade" id="A" value="A" > 5</p>
+            <p><input type="radio" name="grade" id="B" value="B" > 4</p>
+            <p><input type="radio" name="grade" id="C" value="C" > 3</p>
+            <p><input type="radio" name="grade" id="D" value="D" checked> 2</p>
+            <p><input type="radio" name="grade" id="F" value="F" > 1</p>
+            {% elif task_answer.grade == 'F' %}
+            <p><input type="radio" name="grade" id="A" value="A" > 5</p>
+            <p><input type="radio" name="grade" id="B" value="B" > 4</p>
+            <p><input type="radio" name="grade" id="C" value="C" > 3</p>
+            <p><input type="radio" name="grade" id="D" value="D" > 2</p>
+            <p><input type="radio" name="grade" id="F" value="F" checked> 1</p>
+            {% else %}
+            <p><input type="radio" name="grade" id="A" value="A" > 5</p>
+            <p><input type="radio" name="grade" id="B" value="B" > 4</p>
+            <p><input type="radio" name="grade" id="C" value="C" > 3</p>
+            <p><input type="radio" name="grade" id="D" value="D" > 2</p>
+            <p><input type="radio" name="grade" id="F" value="F" > 1</p>
+            {% endif %}
+
+            <input type="submit" value="Оценить">
+        </form>
+    </div>
+    {% endfor %}
+</body>
+</html>

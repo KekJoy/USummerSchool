@@ -75,7 +75,7 @@ def registration_user(request):
 """Функция активации акканута пользователя"""
 
 
-def activate(request, uidb64, token):
+def mail_accept(request, uidb64, token):
     User = get_user_model()
     try:
         uid = force_str(urlsafe_base64_decode(uidb64))
@@ -96,3 +96,4 @@ def activate(request, uidb64, token):
 class CustomLoginView(LoginView):
     template_name = 'authentication/login/login.html'
     redirect_authenticated_user = 'home'
+
