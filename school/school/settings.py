@@ -136,3 +136,4 @@ DEFAULT_FROM_EMAIL = 'RioKatsu@yandex.ru'
 EMAIL_USE_TLS = True
 
 LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'

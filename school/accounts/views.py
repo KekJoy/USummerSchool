@@ -18,12 +18,12 @@ from .forms import ProgramCreationForm
 
 
 def index(request):
-    return render(request, 'users/account_student.html')
+    return render(request, 'accounts/account_student.html')
 
 
 @login_required
 def home(request):
-    return render(request, 'users/account_student.html')
+    return render(request, 'accounts/account_student.html')
 
 
 @login_required
@@ -40,7 +40,7 @@ def edit(request):
             return redirect('lk_account_student')
     else:
         form = CustomUserChangeForm(instance=profile)
-    return render(request, 'users/account_student_edit.html')
+    return render(request, 'accounts/account_student_edit.html')
 
 
 @login_required
@@ -75,19 +75,19 @@ def edit_programs(request):
                         programs.program_list = ProgramList.objects.get(title=lang)
                         programs.save()
                     except:
-                        return render(request, 'users/account_student_program_change.html', context=context)
+                        return render(request, 'accounts/account_student_program_change.html', context=context)
 
             # TODO: При удалении направления пользователем (снятие чекбоксов),
             #  в модели Programs удаляется направление за пользователем
 
-            return render(request, 'users/account_student_program_change.html', context=context)
+            return render(request, 'accounts/account_student_program_change.html', context=context)
         return redirect('lk_account_student')
     else:
-        return render(request, 'users/account_student_program_change.html', context=context)
+        return render(request, 'accounts/account_student_program_change.html', context=context)
 
 
 class ViewPrograms(ListView):
-    template_name = 'users/account_student_view_programs.html'
+    template_name = 'accounts/account_student_view_programs.html'
     model = Programs
 
     def get(self, request):
@@ -97,7 +97,7 @@ class ViewPrograms(ListView):
             profile = Profile(user=request.user)
 
         context = {'programs': Programs.objects.filter(profile=profile)}
-        return render(request, 'users/account_student_view_programs.html', context=context)
+        return render(request, 'accounts/account_student_view_programs.html', context=context)
 
 
 @login_required
@@ -108,7 +108,7 @@ def view_programs(request):
         profile = Profile(user=request.user)
 
     context = {'programs': Programs.objects.filter(profile=profile)}
-    return render(request, 'users/account_student_view_programs.html', context=context)
+    return render(request, 'accounts/account_student_view_programs.html', context=context)
 
 
 @login_required
@@ -162,10 +162,12 @@ def solve_task(request, pk, task):
             task_list.save()
             messages.success(request, 'Task Successfully')
 
+
+
         # return render(request, 'users/test.html', context={'test': test})
         return redirect(reverse('lk_account_student_task_solve', kwargs={'pk': pk, 'task': str(int(task) + 1)}))
 
-    return render(request, 'users/account_student_view_task.html', context=context)
+    return render(request, 'accounts/account_student_view_task.html', context=context)
 
 
 @login_required
@@ -174,7 +176,7 @@ def view_students(request):
         'task_answers': TaskAnswer.objects.all(),
         'students': Programs.objects.all(),
     }
-    return render(request, 'users/account_curator_students.html', context=context)
+    return render(request, 'accounts/account_curator_students.html', context=context)
 
 
 @login_required
@@ -202,7 +204,7 @@ def view_student_task(request, pk):
 
         return redirect(reverse('lk_account_curator_student_task', kwargs={'pk': pk}))
     else:
-        return render(request, 'users/account_curator_student_task.html', context=context)
+        return render(request, 'accounts/account_curator_student_task.html', context=context)
 
 
 def create_program(request):

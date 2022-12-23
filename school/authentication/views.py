@@ -94,6 +94,6 @@ def mail_accept(request, uidb64, token):
 
 
 class CustomLoginView(LoginView):
-    template_name = 'authentication/login/login.html'
+    template_name = 'authentication/login/index.html'
     redirect_authenticated_user = 'home'
 

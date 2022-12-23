@@ -6,42 +6,1099 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{% static 'main/index/css/normalize.css' %}">
-    <link rel="stylesheet" href="{% static 'main/index/css/style.css' %}">
+
     <title>U Summer School</title>
     <link rel="stylesheet" href="https://unpkg.com/accordion-js@3.3.2/dist/accordion.min.css">
+    
+    <style>
+    html {
+    box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+:root {
+    --white: #FFFFFF;
+    --pink: #EF476F;
+    --blue: #3F43C5;
+    --black: #000000;
+    --green: #3EDAA2;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: local("Montserrat-ExtraBold"),
+      url("{% static 'main/index/fonts/montserrat-v21-latin_cyrillic-800.woff2' %}") format("woff2"),
+      url("{% static 'main/index/fonts/montserrat-v21-latin_cyrillic-800.woff' %}") format("woff");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: local("Montserrat-Bold"),
+      url("{% static 'main/index/fonts/montserrat-v21-latin_cyrillic-700.woff2' %}") format("woff2"),
+      url("{% static 'main/index/fonts/montserrat-v21-latin_cyrillic-700.woff' %}") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: local("Montserrat-SemiBold"),
+      url("{% static 'main/index/fonts/montserrat-v21-latin_cyrillic-600.woff2' %}") format("woff2"),
+      url("{% static 'main/index/fonts/montserrat-v21-latin_cyrillic-600.woff' %}") format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Montserrat";
+    src: local("Montserrat-Regular"),
+        url("{% static 'main/index/fonts/montserrat-v21-latin_cyrillic-regular.woff2' %}") format("woff2"),
+        url("{% static 'main/index/fonts/montserrat-v21-latin_cyrillic-regular.woff' %}") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src:  url("{% static 'main/index/fonts/Montserrat-Medium.ttf' %}");
+}
+
+@font-face {
+    font-family: QuinqueFive;
+    src:  url("{% static 'main/index/fonts/QuinqueFive.ttf' %}");
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--white);
+    margin: 0 auto;
+    min-width: 1800px;
+}
+
+.button-reset {
+    padding: 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: transparent;
+}
+
+.list-reset {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.container__blue {
+    background-color: var(--blue);
+    margin: 0 auto;
+    width: 100%;
+    margin-bottom: 130px;
+    min-width: 1800px;
+}
+
+.container__blue-footer {
+    background-color: var(--blue);
+    margin: 0 auto;
+    width: 100%;
+}
+
+.container__white {
+    background-color: var(--white);
+    margin: 0 auto;
+    width: 100%;
+    margin-bottom: 130px;
+}
+
+.web-adaptive-header {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.web-adaptive {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+/* Header */
+
+.header__card {
+    min-height: 1080px;
+}
+
+.header__menu {
+    height: 160px;
+    align-items: center;
+}
+
+.header__link-logo {
+    margin-left: 130px;
+}
+
+.header__menu-right {
+    margin-right: 140px;
+}
+
+.header__menu-center {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.header__button {
+    font-size: 24px;
+    padding: 24px 56px 24px 56px;
+    color: var(--white);
+    background-color: var(--pink);
+    border-radius: 12px;
+    border-style: solid;
+    border-color: var(--pink);
+    cursor: pointer;
+    font-weight: 600;
+    transition: border-color .2s linear, background-color .2s linear;
+}
+
+.header__button:focus {
+    background-color: #FF6489;
+    border-color: #FF6489;
+}
+
+.header__button:hover {
+    background-color: #FF6489;
+    border-color: #FF6489;
+}
+
+.header__button:active {
+    background-color: #CE3D60;
+    border-color:#CE3D60;
+}
+
+.header__link {
+    color: var(--white);
+    font-size: 24px;
+    font-weight: 600;
+    margin-right: 40px;
+}
+
+.header__link-group {
+    color: var(--white);
+    font-size: 24px;
+    font-weight: 600;
+
+}
+
+.list-items:not(:last-child) {
+    margin-right: 40px;
+}
+
+.header__menu-right-have-photo {
+    align-items: center;
+}
+
+.list-items:focus {
+    text-decoration: 2px underline;
+}
+
+.list-items:hover {
+    text-decoration: 2px underline;
+}
+
+.list-items:active {
+    text-decoration: 2px underline;
+}
+
+.header__link:focus {
+    text-decoration: 2px underline;
+}
+
+.header__link:hover {
+    text-decoration: 2px underline;
+}
+
+.header__link:active {
+    text-decoration: 2px underline;
+}
+
+.header__content {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header__content-title {
+    font-size: 107px;
+    color: var(--white);
+    margin-left: 169px;
+    font-weight: 700;
+}
+
+
+.header__content-img {
+    margin-left: 130px;
+}
+
+.header__content-text {
+    margin-left: 169px;
+    max-width: 704px;
+    font-size: 28px;
+    color: var(--white);
+    margin-top: -200px;
+    font-weight: 500;
+}
+
+.header__content-arrow {
+    margin-left: 940px;
+    padding-bottom: 124px;
+    margin-top: 147px;
+}
+
+/* About school */
+
+.about__school {
+    margin-left: 142px;
+    margin-right: 142px;
+}
+
+.about__school-title {
+    font-size: 72px;
+    font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 80px;
+}
+
+.about__school-card {
+    background-color: var(--blue);
+    border-radius: 12px;
+    border-style: solid;
+    border-color: var(--blue);
+    padding: 70px 82px 70px 82px;
+    max-width: 1636px;
+    margin-bottom: 60px;
+}
+
+.about__school-text {
+    font-size: 28px;
+    color: var(--white);
+    font-weight: 500;
+    max-width: 953px;
+    margin-right: auto;
+}
+
+.about__school-button {
+    font-size: 24px;
+    padding: 24px 56px 24px 56px;
+    color: var(--white);
+    background-color: var(--pink);
+    border-radius: 12px;
+    border-style: solid;
+    border-color: var(--pink);
+    cursor: pointer;
+    font-weight: 600;
+    transition: border-color .2s linear, background-color .2s linear;
+    display: var(--blue);
+    margin: auto 0;
+}
+
+.about__school-button:focus {
+    background-color: #FF6489;
+    border-color: #FF6489;
+}
+
+.about__school-button:hover {
+    background-color: #FF6489;
+    border-color: #FF6489;
+}
+
+.about__school-button:active {
+    background-color: #CE3D60;
+    border-color:#CE3D60;
+}
+
+.about__school-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px 150px;
+    max-width: 1636px;
+    justify-content: center;
+}
+
+.about__school-list-items {
+    background-color: var(--blue);
+    border-radius: 12px;
+    border-style: solid;
+    border-color: var(--blue);
+    padding: 29px 23px 37px 34px;
+    display: inline-block;
+}
+
+.about__school-list-block {
+    font-family: QuinqueFive;
+    font-weight: 400;
+    font-size: 48px;
+    color: var(--white);
+}
+
+.about__school-list-content {
+    align-items: center;
+}
+
+.about__school-list-text {
+    font-family: Montserrat;
+    font-weight: 500;
+    font-size: 28px;
+    color: var(--blue);
+    margin-left: 28px;
+}
+
+/* Program */
+
+.program__title {
+    color: var(--white);
+    font-size: 72px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-bottom: 80px;
+    padding-top: 110px;
+}
+
+.program__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    max-width: 1236px;
+    padding-bottom: 110px;
+}
+
+.program__list-text {
+    color: var(--blue);
+    font-size: 28px;
+    font-weight: 700;
+    max-width: 422px;
+    margin-right: auto;
+    text-align: start;
+    margin-bottom: 10px;
+}
+
+.program__list-items {
+    width: 500px;
+    align-items: center;
+}
+
+.ui-accordion-header-active svg {
+    transform: rotate(180deg);
+}
+
+.program__button svg {
+    transition: transform .4s ease;
+    position: relative;
+}
+
+.program__list-card {
+    height: 100%;
+    background-color: var(--white);
+    border-radius: 12px;
+    border-style: solid;
+    border-color: var(--blue);
+    padding: 48px 44px 48px 44px;
+    align-items: center;
+    max-width: 588px;
+}
+
+.program__description-text {
+    padding-top: 30px;
+    font-weight: 400px;
+    font-size: 24px;
+}
+
+/* data */
+
+.data {
+    margin-right: 147px;
+}
+
+.data__title {
+    color: var(--blue);
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 88px;
+    margin-left: -147px;
+    margin-bottom: 107px;
+}
+
+.data_scheme {
+
+}
+
+.data__more {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--pink);
+    cursor: pointer;
+    transition: color .2s linear;
+}
+
+.data__more:focus {
+    color: #FF6489;
+}
+
+.data__more:hover {
+    color: #FF6489;
+}
+
+.data__more:active {
+    color: #CE3D60;
+}
+
+.data__time {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 29px;
+    cursor: pointer;
+}
+
+.data__step {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 60px;
+    color: var(--blue);
+    margin-bottom: 29px;
+    cursor: pointer;
+}
+
+.data__content {
+    max-width: 615px;
+}
+
+.data__img-line {
+    justify-content: end center;
+}
+
+.data__img-box {
+    margin-right: 42px;
+}
+
+.data__img-group {
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.data__content-first {
+    /*margin-left: 151px;*/
+}
+
+.data__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 42px;
+
+}
+
+.data__accordion-blog {
+    max-width: 455px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.data__accordion-descr {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+/* system */
+
+.system {
+    margin-right: 553px;
+}
+
+.system__title {
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 88px;
+    margin-bottom: 80px;
+    color: var(--blue);
+}
+
+.system__block {
+    font-weight: 500;
+    font-size: 28px;
+    color:var(--blue);
+    max-width: 1065px;
+    margin-bottom: 130px;
+}
+
+.system__block-text:not(:last-child) {
+    margin-bottom: 50px;
+}
+
+/* footer */
+
+.footer__logo {
+    margin-left: 130px;
+    max-width: 180px;
+    max-height: 81px;
+
+}
+
+.footer__position {
+    height: 160px;
+    align-items: center;
+}
+
+@media screen and (max-width: 1680px) and (max-height: 1050px){
+    body {
+        zoom: 87%;
+    }
+}
+
+@media screen and (max-width: 1600px) and (max-height: 1024px){
+    body {
+        zoom: 84%
+    }
+
+    .about__school-list {
+        gap: 25px 100px;
+    }
+}
+
+@media screen and (max-width: 1600px) and (max-height: 900px){
+    body {
+        zoom: 80%;
+    }
+}
+
+@media screen and (max-width: 1440px) and (max-height: 900px){
+    body {
+        zoom: 76%;
+    }
+}
+
+@media screen and (max-width: 1366px) and (max-height: 768px){
+    body {
+        zoom: 67%;
+    }
+}
+
+
+@media screen and (max-width: 1280px) and (max-height: 1024px){
+    body {
+        zoom: 66%;
+    }
+}
+
+
+.data__content-grid {
+    display: grid;
+
+    grid-template-columns: 476px auto 476px;
+    grid-template-rows: auto auto auto auto auto;
+    grid-template-areas:
+    'first-step img1 .'
+    '. img2 second-step'
+    'third-step img3 .'
+    '. img4 fourth-step'
+    'fifth-step img5 .';
+
+    gap: 84px 40px;
+    justify-content: center;
+
+    margin-bottom: 130px;
+}
+
+.data__content-grid-img1 {
+    grid-area: img1;
+}
+.data__content-grid-img2 {
+    grid-area: img2;
+}
+.data__content-grid-img3 {
+    grid-area: img3;
+}
+.data__content-grid-img4 {
+    grid-area: img4;
+}
+.data__content-grid-img5 {
+    grid-area: img5;
+}
+
+.data__content-grid-step1 {
+    grid-area: first-step;
+}
+.data__content-grid-step2 {
+    grid-area: second-step;
+}
+.data__content-grid-step3 {
+    grid-area: third-step;
+}
+.data__content-grid-step4 {
+    grid-area: fourth-step;
+}
+.data__content-grid-step5 {
+    grid-area: fifth-step;
+}
+
+.data_content-step-img {
+    background-color: #EF476F;
+    padding: 16px 13px 20px 19px;
+    border-radius: 12px;
+    color: var(--white);
+    font-family: 'QuinqueFive';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+
+    margin-bottom: 40px;
+}
+
+.data__content-step-svg {
+    display: flex;
+    justify-content: center;
+}
+
+.action__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.action__button {
+    margin-bottom: 90px;
+}
+
+.action__title {
+    padding-top: 90px;
+    margin-bottom: 60px;
+    color: var(--white);
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 110%;
+}
+
+/* Mini prof*/
+.button__bell {
+    margin-right: 28px;
+}
+
+.popup-window {
+    display: none;
+    position: absolute;
+    right: 140px;
+    top: 40px;
+    width: 410px;
+    z-index: 100;
+}
+
+.popup-window__title {
+    max-width: 214px;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 21px;
+    color: var(--blue);
+    word-wrap:break-word;
+    width:100%;
+    left:0;
+    margin-bottom: 19px;
+}
+
+.popup-window__text {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    color: var(--blue);
+    max-width: 214px;
+}
+
+.popup-window__body {
+    max-width: 410px;
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0px 4px 18px 0px rgba(63,67,197,0.18);
+    padding: 25px 34px 30px 28px;
+}
+
+.popup-window__text:not(:last-child) {
+    margin-bottom: 12px;
+}
+
+.popup-window__photo-space {
+    margin-right: 12px;
+}
+
+.popup-window__text-space {
+    margin-right: 24px;
+    min-width: 214px;
+}
+
+
+.show {display: block;}
+
+.header__more-group {
+    margin-right: 140px;
+}
+
+.mini-photo__size {
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+}
+
+.header__button-more {
+    margin-top: 29px;
+    margin-left: 28px;
+}
+
+
+/* Auth */
+.authorization {
+    width: 1000px;
+    border-radius: 36px;
+    height: 800px;
+    background-color: white;
+}
+
+.authorization__container {
+    width: 797px;
+}
+
+.authorization__link-position {
+    max-width: 300px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 29px 0px;
+}
+
+.authorization__title {
+    color: var(--blue);
+    margin-bottom: 80px;
+    margin-right: auto;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 49px;
+    padding-top: 10px;
+}
+
+.authorization__items {
+    max-width: 948px;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: flex-start;
+    margin-bottom: 50px;
+}
+
+.authorization__input {
+    height: 60px;
+    width: 526px;
+    border-radius: 12px;
+    border: 2px solid var(--blue);
+    border-color:var(--blue);
+    padding-left: 15px;
+}
+
+.authorization__items:last-child {
+    margin-bottom: 58px;
+}
+
+.authorization__input:focus {
+    border: 3px solid var(--blue);
+    border-color:var(--blue);
+    outline: none;
+}
+
+.authorization__text {
+    color: var(--blue);
+    font-weight: 500;
+    font-size: 28px;
+    padding-top: 13px;
+}
+
+.authorization__button {
+    font-size: 24px;
+    padding: 24px 56px 24px 56px;
+    color: var(--white);
+    background-color: var(--pink);
+    border-radius: 12px;
+    border-style: solid;
+    border-color: var(--pink);
+    cursor: pointer;
+    font-weight: 600;
+    transition: border-color .2s linear, background-color .2s linear;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin-bottom: 29px;
+}
+
+.authorization__button:focus {
+    background-color: #FF6489;
+    border-color: #FF6489;
+}
+
+.authorization__button:hover {
+    background-color: #FF6489;
+    border-color: #FF6489;
+}
+
+.authorization__button:active {
+    background-color: #CE3D60;
+    border-color:#CE3D60;
+}
+
+.authorization__link {
+    font-size: 24px;
+    font-weight: 600;
+    color:var(--blue)
+}
+
+.authorization__link:focus {
+    color: #FF6489;
+}
+
+.authorization__link:hover {
+    color: #FF6489;
+}
+
+.authorization__link:active {
+    color: #CE3D60;
+}
+
+.authorization__close {
+    display: flex;
+    align-items: stretch;
+    max-height: 41px;
+    margin-top: 19px;
+}
+
+        .overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 36px;
+  padding: 60px;
+  position: relative;
+}
+
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+    </style>
 </head>
 <body>
     <header class="header">
         <div class="">
             <div class="container__blue header__card">
+                {% if not user.is_authenticated %}
                 <div class="header__menu flex">
                     <a href="{% url 'home' %}" class="header__link-logo">
                         <img src="{% static 'main/index/img/header__logo.svg' %}" alt="Logo" class="header__logo" >
                     </a>
+                    <div class="header__menu-center">
+                        <ul class="list-reset list-item flex">
+                            <li class="list-items">
+                                <a href="#school" class="header__link-group">
+                                    О школе
+                                </a>
+                            </li>
+                            <li class="list-items">
+                                <a href="#program" class="header__link-group">
+                                    Направления
+                                </a>
+                            </li>
+                            <li class="list-items">
+                                <a href="#data" class="header__link-group">
+                                    Этапы
+                                </a>
+                            </li>
+                            <li class="list-items">
+                                <a href="#system" class="header__link-group">
+                                    Система отбора
+                                </a>
+                            </li>                          
+                        </ul>                    
+                    </div>
                     <div class="header__menu-right">
-                        <a href="{% url 'login' %}" class="header__link">
+                        <a href="{% url 'login' %}#popup1 " class="header__link">
                             Вход
                         </a>
-                        <a href="{% url 'registration' %}"  class="button-reset header__button" >
-                        <button href="#" class="button-reset header__button">
-                            Регистрация 
+                        <button href="" class="button-reset header__button">
+                            <a href="{% url 'registration' %}">
+                                Регистрация
+                            </a>
+
                         </button>
-                        </a>
                     </div>
                 </div>
+                {% else %}
+                <div class="header__menu flex">
+                    <a href="{% url 'home'  %}" class="header__link-logo">
+                        <img src="{% static 'main/index/img/header__logo.svg' %}" alt="Logo" class="header__logo" >
+                    </a>
+                    <div class="header__menu-center">
+                        <ul class="list-reset list-item flex">
+                            <li class="list-items">
+                                <a href="#school" class="header__link-group">
+                                    О школе
+                                </a>
+                            </li>
+                            <li class="list-items">
+                                <a href="#program" class="header__link-group">
+                                    Направления
+                                </a>
+                            </li>
+                            <li class="list-items">
+                                <a href="#data" class="header__link-group">
+                                    Этапы
+                                </a>
+                            </li>
+                            <li class="list-items">
+                                <a href="#system" class="header__link-group">
+                                    Система отбора
+                                </a>
+                            </li>                          
+                        </ul>                    
+                    </div>
+                    <div class="flex header__menu-right-have-photo">
+                        <div></div>
+                        <a href="{% url 'account_student' %}" class="header__link button__bell">
+                            Личный кабинет
+                        </a>                 
+                        <div class="flex">                        
+                            <button class="button-reset button__bell">
+                                <svg width="29" height="41" viewBox="0 0 29 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14.5 40.5C16.4938 40.5 18.125 38.9308 18.125 37.0128H10.875C10.875 38.9308 12.5062 40.5 14.5 40.5ZM25.375 30.0385V21.3205C25.375 15.9677 22.4206 11.4867 17.2188 10.301V9.11538C17.2188 7.66821 16.0044 6.5 14.5 6.5C12.9956 6.5 11.7812 7.66821 11.7812 9.11538V10.301C6.5975 11.4867 3.625 15.9503 3.625 21.3205V30.0385L0 33.5256V35.2692H29V33.5256L25.375 30.0385ZM21.75 31.7821H7.25V21.3205C7.25 16.9964 9.98687 13.4744 14.5 13.4744C19.0131 13.4744 21.75 16.9964 21.75 21.3205V31.7821Z" fill="white"/>
+                                    <circle cx="24" cy="5.5" r="5" fill="#EF476F"/>
+                                </svg>                       
+                            </button>                                
+                        </div>
+                        <div class="personal-account-mini">
+                            <div class="flex">
+                                <button class="button-reset flex popup-btn header__more-group" onclick="myFunction()">
+                                    <img src="{% static 'main/index/img/mini-photo.png' %}" alt="mini-photo" class="popup-btn mini-photo__size">
+                                    <svg width="23" height="15" viewBox="0 0 23 15" fill="none" xmlns="http://www.w3.org/2000/svg" class="header__button-more popup-btn">
+                                        <path d="M2.7025 0L11.5 9.27125L20.2975 0L23 2.85425L11.5 15L0 2.85425L2.7025 0Z" fill="white"/>
+                                    </svg>                                                                                 
+                                </button>
+                                <div class="popup-window" id="myDropdown">
+                                    <div class="form-container popup-window__body flex">
+                                        <div class="popup-window__photo-space">
+                                            <img src="{% static 'main/index/img/mini-photo.png' %}" alt="mini-photo" class="mini-photo__size">
+                                        </div>            
+                                        <div class="popup-window__text-space">
+                                            <p class="popup-window__title">
+                                                Иван Иванов Иванович
+                                            </p>
+                                            <ul class="list-reset popup-window__list">
+                                                <li class="popup-window__text">
+                                                    <a href="{% url 'account_student' %}">Профиль</a>
+                                                    
+                                                </li>
+                                                <li class="popup-window__text">
+                                                    <a href="{% url 'account_student' %}">Мои направления</a>
+                                                    
+                                                </li>
+                                                <li class="popup-window__text">
+                                                    <a href="{% url 'logout' %}">Выйти из аккаунта</a>
+                                                    
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="">
+                                            <button type="button" class="button-reset popup-btn-close">
+                                                <img src="{% static 'main/index/img/arrow.svg' %}" alt="" class="popup-btn-close">
+                                            </button>                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                {% endif %}
                 <div class="web-adaptive-header">
                     <div class="header__content">
-                        <h1 class="header__content-title">
-                            Летняя школа
-                        </h1>
-                        <img src="{% static 'main/index/img/u summer school.png' %}" alt="Logo" class="header__content-img">
+                        <div class="header__content-img">
+                            <img src="{% static 'main/index/img/televizor 2.0.png' %}" alt="Logo">
+                        </div>
                         <p class="header__content-text">
                             Участие в U Summer School - это возможность погрузиться в одно из направлений сферы информационной безопасности.
                         </p>
                         <div class="header__content-arrow flex">
-                            <svg width="40" height="25" viewBox="0 0 40 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.7 0L20 15.4521L35.3 0L40 4.75708L20 25L0 4.75708L4.7 0Z" fill="white"/>
-                                </svg>
+                            <svg width="40" height="55" viewBox="0 0 40 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.7 30.0002L20 45.4523L35.3 30.0002L40 34.7573L20 55.0002L0 34.7573L4.7 30.0002Z" fill="white"/>
+                                <rect x="17" width="6" height="49" fill="white"/>
+                            </svg>                           
                         </div>      
                     </div>
                 </div>
@@ -49,7 +1106,7 @@
         </div>
     </header>
     <main class="main">
-        <section class="about__school web-adaptive">
+        <section class="about__school web-adaptive" id="school">
             <div class="">
                 <div class="container__white">
                     <h2 class="about__school-title">
@@ -61,11 +1118,12 @@
                                 Участие в&nbsp;U&nbsp;Summer School&nbsp;&mdash; это возможность погрузиться в&nbsp;одно из&nbsp;направлений сферы информационной безопасности. 
                                 В&nbsp;течение месяца студенты решают рабочие задачи, учатся у&nbsp;экспертов компании, делают вклад в&nbsp;свое развитие.                        
                             </p>
-                            <a href = "{% url 'about' %}">
                             <button class="about__school-button button-reset">
-                                Подробнее
+                                <a href="{% url 'about' %}">
+                                    Подробнее
+                                </a>
+
                             </button>
-                            </a>
                         </div>
                     </div>
                     <div>
@@ -112,7 +1170,7 @@
             </div>
         </section>
         
-        <section class="program">
+        <section class="program" id="program">
             <div class="container__blue">
                 <h2 class="program__title">
                     Направления 
@@ -259,106 +1317,186 @@
                 </div>
             </div>
         </section>
-
-        <section class="data web-adaptive">
-            <div>
+        
+        <section class="data web-adaptive" id="data">
+            <div>               
                 <div class="container__white">
-                    <h2 class="data__title">Даты прохождения</h2>
-                    <ul class="list-reset data__list">
-                        <li class="test">
-                            <div class="data__content-first accordions">
-                                <div class="flex data__img-group"> 
-                                    <svg class="data__img-box" width="51" height="51" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="51" height="51" fill="#EF476F"/>
-                                        </svg>   
-                                    
-                                        <svg class="data__img-line" width="362" height="9" viewBox="0 0 362 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="362" height="9" fill="#3F43C5"/>
-                                            </svg>
-                                    </div>                               
-                                <div class="data__step">
-                                    <p class="">
-                                        1 этап
+                    <h2 class="data__title">Этапы прохождения</h2>
+                    <ul class="list-reset  data__content-grid ">
+                        <li class="test data__content-grid-step1 ">
+                            <div class="data__content-grid-step1">
+                                <div class="data__content-first accordions">                               
+                                    <div class="data__step">
+                                        <p class="">
+                                            Регистрация
+                                        </p>
+                                    </div>
+                                    <p class="data__time">
+                                        01.06.2023 — 20.06.2023
+                                    </p>
+                                    <a class="data__more">
+                                        Подробнее
+                                    </a>
+                                </div>
+                                <div class="data__accordion-blog">
+                                    <p class="data__accordion-descr ">
+                                        На этапе регистрации участники заполняют форму на сайте, выбирают направления участия.
                                     </p>
                                 </div>
-                                <p class="data__time">
-                                    21.10.2022 — 22.11.2022
-                                </p>
-                                <a class="data__more">
-                                    Подробнее
-                                </a>
+
                             </div>
-                            <div class="data__accordion-blog">
-                                <p class="data__accordion-descr ">
-                                    У каждого студента есть куратор, готовый научить, помочь, поддержать.
-                                </p>
+                        </li>
+                        <li class="data__content-grid-img1">
+                            <div class="data__content-grid-img1">
+                                <p class="data_content-step-img">1</p>
+                                <div class="data__content-step-svg">
+                                    <svg width="9" height="130" viewBox="0 0 9 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="9" width="130" height="8.99999" rx="3" transform="rotate(90 9 0)" fill="#3F43C5"/>
+                                    </svg>                                    
+                                </div>
                             </div>
-                        </li>  
-                        <li class="test">
-                            <div class="data__content accordions">
-                                <div class="flex data__img-group"> 
-                                    <svg class="data__img-box" width="51" height="51" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="51" height="51" fill="#EF476F"/>
-                                        </svg>   
-                                    
-                                        <svg class="data__img-line" width="362" height="9" viewBox="0 0 362 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="362" height="9" fill="#3F43C5"/>
-                                            </svg>
-                                    </div>                               
-                                <div class="data__step">
-                                    <p class="">
-                                        2 этап
+                        </li>
+                        <li class="test data__content-grid-step2">
+                            <div class="data__content-grid-step2">
+                                <div class="data__content-first accordions">                              
+                                    <div class="data__step">
+                                        <p class="">
+                                            Отборочный этап
+                                        </p>
+                                    </div>
+                                    <p class="data__time">
+                                        20.06.2023 — 30.06.2023
+                                    </p>
+                                    <a class="data__more">
+                                        Подробнее
+                                    </a>
+                                </div>
+                                <div class="data__accordion-blog">
+                                    <p class="data__accordion-descr ">
+                                        Отборочный этап проводится в онлайн-формате. Участники дистанционно выполняют задания по выбранным направлениям.
                                     </p>
                                 </div>
-                                <p class="data__time">
-                                    21.10.2022 — 22.11.2022
-                                </p>
-                                <a class="data__more">
-                                    Подробнее
-                                </a>
-                            </div>
-                            <div class="data__accordion-blog">
-                                <p class="data__accordion-descr ">
-                                    У каждого студента есть куратор, готовый научить, помочь, поддержать.
-                                </p>
+
                             </div>
                         </li> 
-                        <li class="test">
-                            <div class="data__content accordions">
-                                <div class="flex data__img-group"> 
-                                    <svg class="data__img-box" width="51" height="51" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="51" height="51" fill="#EF476F"/>
-                                        </svg>   
-                                    
-                                    <svg class="data__img-line" width="362" height="9" viewBox="0 0 362 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <rect width="362" height="9" fill="#3F43C5"/>
-                                        </svg>                                        
-                                                
-                                </div>                               
-                                <div class="data__step">
-                                    <p class="">
-                                        3 этап
+                        <li class="data__content-grid-img2">
+                            <div class="data__content-grid-img2">
+                                <p class="data_content-step-img">2</p>
+                                <div class="data__content-step-svg">
+                                    <svg width="9" height="130" viewBox="0 0 9 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="9" width="130" height="8.99999" rx="3" transform="rotate(90 9 0)" fill="#3F43C5"/>
+                                    </svg>                                    
+                                </div>
+                            </div>
+                        </li>
+                        <li class="test data__content-grid-step3">
+                            <div class="data__content-grid-step3">
+                                <div class="data__content-first accordions">                              
+                                    <div class="data__step">
+                                        <p class="">
+                                            Публикация результатов
+                                        </p>
+                                    </div>
+                                    <p class="data__time">
+                                        05.07.2023
+                                    </p>
+                                    <a class="data__more">
+                                        Подробнее
+                                    </a>
+                                </div>
+                                <div class="data__accordion-blog">
+                                    <p class="data__accordion-descr ">
+                                        В личных кабинетах участников появятся результаты отборочного этапа и проходные баллы. Студенты, набравшие достаточно баллов, приглашаются на заключительный этап.
                                     </p>
                                 </div>
-                                <p class="data__time">
-                                    21.10.2022 — 22.11.2022
-                                </p>
-                                <a class="data__more">
-                                    Подробнее
-                                </a>                              
+
                             </div>
-                            <div class="data__accordion-blog">
-                                <p class="data__accordion-descr ">
-                                    У каждого студента есть куратор, готовый научить, помочь, поддержать.
-                                </p>
+                        </li> 
+                        <li class="data__content-grid-img3">
+                            <div class="data__content-grid-img3">
+                                <p class="data_content-step-img">3</p>
+                                <div class="data__content-step-svg">
+                                    <svg width="9" height="130" viewBox="0 0 9 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="9" width="130" height="8.99999" rx="3" transform="rotate(90 9 0)" fill="#3F43C5"/>
+                                    </svg>                                    
+                                </div>
                             </div>
-                        </li>                                                       
+                        </li>
+                        <li class="test data__content-grid-step4">
+                            <div class="data__content-grid-step4">
+                                <div class="data__content-first accordions">                              
+                                    <div class="data__step">
+                                        <p class="">
+                                            Заключительный этап
+                                        </p>
+                                    </div>
+                                    <p class="data__time">
+                                        07.07.2023 — 17.07.2023
+                                    </p>
+                                    <a class="data__more">
+                                        Подробнее
+                                    </a>
+                                </div>
+                                <div class="data__accordion-blog">
+                                    <p class="data__accordion-descr ">
+                                        Участники решают задания заключительного этапа. Многие задачи направлены на проверку прикладных профессиональных компетенций. Этап проводится с соблюдением принципа территориального равенства.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </li>     
+                        <li class="data__content-grid-img4">
+                            <div class="data__content-grid-img4">
+                                <p class="data_content-step-img">4</p>
+                                <div class="data__content-step-svg">
+                                    <svg width="9" height="130" viewBox="0 0 9 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="9" width="130" height="8.99999" rx="3" transform="rotate(90 9 0)" fill="#3F43C5"/>
+                                    </svg>                                    
+                                </div>
+                            </div>
+                        </li>
+                        <li class="test data__content-grid-step5">
+                            <div class="data__content-grid-step5">
+                                <div class="data__content-first accordions">                              
+                                    <div class="data__step">
+                                        <p class="">
+                                            Подведение итогов
+                                        </p>
+                                    </div>
+                                    <p class="data__time">
+                                        20.07.2023
+                                    </p>
+                                    <a class="data__more">
+                                        Подробнее
+                                    </a>
+                                </div>
+                                <div class="data__accordion-blog">
+                                    <p class="data__accordion-descr ">
+                                        На сайте публикуются итоги состязаний. В личных кабинетах участников появляются статусы.
+                                    </p>
+                                </div>
+
+                            </div>
+                        </li>     
+                        <li class="data__content-grid-img5">
+                            <div class="data__content-grid-img5">
+                                <p class="data_content-step-img">5</p>
+                                <div class="data__content-step-svg">
+                                    <svg width="9" height="130" viewBox="0 0 9 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="9" width="130" height="8.99999" rx="3" transform="rotate(90 9 0)" fill="#3F43C5"/>
+                                    </svg>                                    
+                                </div>
+                            </div>
+                        </li>                                          
                     </ul>
                 </div>
             </div>
+
+            
         </section>
 
-        <section class="system web-adaptive">
+
+        <section class="system web-adaptive" id="system">
             <div>
                 <div class="container__white">
                     <h2 class="system__title"> Система отбора </h2>
@@ -377,6 +1515,71 @@
                 </div>
             </div>
         </section>
+        {% if not user.is_authenticated %}
+        <section>
+            <div class="container__blue action__container">
+                <p class="action__title">Участвуй в отборе!</p>
+                    <button class="about__school-button button-reset action__button">
+                        <a href="{% url 'registration' %}">
+                            Зарегистрироваться
+                        </a>
+                    </button>
+            </div>
+        </section>
+        {% endif %}
+        {% if not user.is_authenticated %}
+        <div id="popup1" class="overlay">
+            <div class="authorization__container popup">
+                <div class="flex">
+                    <h2 class="authorization__title">
+                        Вход
+                    </h2>
+                    <a href="#" class="authorization__close button-reset close">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M30 3.02143L26.9786 0L15 11.9786L3.02143 0L0 3.02143L11.9786 15L0 26.9786L3.02143 30L15 18.0214L26.9786 30L30 26.9786L18.0214 15L30 3.02143Z" fill="#3F43C5"/>
+                            </svg>
+                                                        
+                        </a>
+                </div>
+                <div>
+                    <ul class="list-reset authorization__list">
+                        <li class="authorization__items flex web-adaptive">
+                            <p class="authorization__text">
+                                Логин
+                            </p>
+                            <div class="">
+                                <!-- type="text" -->
+                                <input type="text" class="authorization__input" required>
+                            </div>
+                        </li>
+                        <li class="authorization__items flex web-adaptive">
+                            <p class="authorization__text">
+                                Пароль
+                            </p>
+                            <div class="">
+                                <!-- type="text" -->
+                                <input type="password" class="authorization__input" required>
+                            </div>
+                        </li>                 
+                    </ul>
+                </div>
+                <div class="flex">
+                    <button class="authorization__button"> Войти</button>    
+                </div>
+                <div class="web-adaptive">
+                    <div class="authorization__link-position flex">
+                        <p>
+                            <a href="{% url 'registration' %}" class="authorization__link">Зарегистрироваться</a>
+                        </p>
+                        <p>
+                            <a href="{% url 'reset_password' %}" class="authorization__link">Забыли пароль?</a>
+                        </p>
+                    </div> 
+                </div>                        
+            </div>
+
+        </div>
+        {% endif %}
     </main>
 
     <footer>
@@ -391,6 +1594,32 @@
     <script src="{% static 'main/index/js/script.js' %}"></script>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.popup-btn')) {
+
+                var dropdowns = document.getElementsByClassName("popup-window");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    console.log(event.target.classList.contains('popup-btn-close'));
+                    console.log(event.target.classList);
+                    if (openDropdown.classList.contains('show') && event.target.classList.contains('popup-btn-close')) {
+                        openDropdown.classList.remove('show');
+                    }
+
+                    if (!openDropdown.classList.contains('show')) {
+                        document.querySelector('meta[name="user-scalable"]').setAttribute("no", _desc);
+                    }
+                }
+            }
+        }
+    </script>
   
 </body>
 </html>
