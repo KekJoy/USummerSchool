@@ -16,7 +16,7 @@ class TaskList(models.Model):
 
 
 class Programs(models.Model):
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='programs_user')
     program_list = models.ForeignKey(ProgramList, on_delete=models.CASCADE)
     is_checked = models.BooleanField(default=False)
     is_completed = models.BooleanField(default=False)

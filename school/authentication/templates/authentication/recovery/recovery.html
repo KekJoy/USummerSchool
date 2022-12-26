@@ -1,455 +1,269 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <title>Forgot your password?: MySite</title>
-  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <link rel="icon" href="//d2hkcehpyog59.cloudfront.net/44685ca8cfaade90d24f718bf876257562a21214/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="/login/styles/common.css">
-  <link rel="stylesheet" type="text/css" href="/login/styles/forgot-password.css">
-  <style>
-        @import url("https://fonts.googleapis.com/css?family=Lato:300,400,700&subset=latin,latin-ext");
-    @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&subset=cyrillic,greek");
-    html,body,div,input {
-        padding: 0;
-        margin: 0
-    }
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'authentication/recovery/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'authentication/recovery/css/style.css' %}">
+    <title>U Summer School</title>
+    <link rel="stylesheet" href="https://unpkg.com/accordion-js@3.3.2/dist/accordion.min.css">
+    <link rel="stylesheet" href="css/selection.css">
 
-    html,body,div,input,textarea,button,select {
-        text-rendering: optimizeLegibility;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box
-    }
+    <style>
+        #msform fieldset {
+            background: white;
+            border: 0 none;
+            border-radius: 0px;
+            padding: 20px 30px;
+            box-sizing: border-box;
+            width: 80%;
+            margin: 0 10%;
 
-    body {
-        color: #423e3e;
-        background-color: #fafafa;
-        font-size: 16px;
-        font-weight: 400
-    }
-
-    body,input,button {
-        font-family: "Lato","Open Sans","Microsoft Yahei","微软雅黑",STXihei,"华文细黑","Hiragino Kaku Gothic Pro",Osaka,'ＭＳ Ｐゴシック','MS PGothic','メイリオ',Meiryo,"Geneva CY","Lucida Grande","Arial Unicode MS","Helvetica Neue","Arial",Sans-Serif
-    }
-
-    input,textarea,button,select {
-        outline: none
-    }
-
-    a[target="_blank"],a[target="_blank"]:visited {
-        color: #2b88d9;
-        text-decoration: none
-    }
-
-    .ellipsis {
-        overflow: hidden;
-        -o-text-overflow: ellipsis;
-        text-overflow: ellipsis;
-        white-space: nowrap
-    }
-
-    .small,.small a {
-        font-size: 12px;
-        line-height: 15px
-    }
-
-    .center {
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center
-    }
-
-
-    /* forgot-password.css*/
-
-    .card {
-        max-width: 370px;
-        min-width: 300px;
-        margin: 40px auto 20px auto;
-        padding: 0 10px
-    }
-
-    .errors {
-        background-color: rgba(214,40,34,0.07);
-        border: 1px solid rgba(214,40,34,0.36);
-        color: #d62822;
-        font-size: 14px;
-        text-align: left;
-        padding: 10px;
-        margin-bottom: 20px;
-        -webkit-border-radius: 4px;
-        border-radius: 4px
-    }
-
-    .auth-form {
-        background-color: #fff;
-        border: 1px solid #ddd;
-        -webkit-box-shadow: 0 1px 3px rgba(50,50,50,0.08);
-        box-shadow: 0 1px 3px rgba(50,50,50,0.08);
-        -webkit-border-radius: 4px;
-        border-radius: 4px;
-        font-size: 16px;
-    }
-
-    .auth-form .row {
-        height: 60px;
-        margin: 0;
-        border-bottom: 1px solid #eee;
-    }
-
-    .auth-form .row:last-child {
-        border-bottom: none
-    }
-
-    .auth-form .row.name,.auth-form .row.email,.auth-form .row.password {
-        display: -webkit-box;
-        display: -moz-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: box;
-        display: flex;
-    }
-
-    .auth-form .row.name input,.auth-form .row.email input,.auth-form .row.password input {
-        -webkit-box-flex: 1;
-        -moz-box-flex: 1;
-        -o-box-flex: 1;
-        box-flex: 1;
-        -webkit-flex: 1;
-        -ms-flex: 1;
-        flex: 1;
-        border: 0 none;
-        font-size: 16px;
-        line-height: 15px;
-        padding: 20px 8px;
-        margin-right: 2px;
-        color: #666
-    }
-
-    .auth-form .row.submit {
-        border-bottom: none;
-        padding: 0 15px;
-    }
-
-    .auth-form .row.submit input.button {
-        display: block;
-        width: 100%;
-        font-size: 16px;
-        padding: 11px 10px;
-        -webkit-border-radius: 3px;
-        border-radius: 3px;
-        margin: 18px auto;
-        font-weight: bold
-    }
-
-    .auth-form .row .icon {
-        display: inline-block;
-        margin: 0 11px 0 16px;
-    }
-
-    .auth-form .row .icon.person {
-        width: 20px;
-        height: 22px;
-        margin-top: 19px
-    }
-
-    .auth-form .row .icon.email {
-        width: 21px;
-        height: 18px;
-        margin-top: 20px
-    }
-
-    .auth-form .row .icon.padlock {
-        width: 21px;
-        height: 25px;
-        margin-top: 16px
-    }
-
-    .link.forgot-password,.link.signup,.link.login {
-        display: block;
-        text-align: center;
-    }
-
-    .link.forgot-password a,.link.signup a,.link.login a {
-        color: #1b7edf;
-        text-decoration: none
-    }
-
-    .link.forgot-password {
-        font-size: 14px
-    }
-
-    .link.signup,.link.login {
-        margin-top: 10px;
-        padding: 10px;
-        font-size: 15px;
-        color: #666
-    }
-
-    @media screen and (max-height: 480px) {
-        .card {
-            margin-top:20px
+            /*stacking fieldsets above each other*/
+            position: relative;
         }
 
-        .auth-form .row {
-            height: 50px;
+        /*Hide all except first fieldset*/
+        #msform fieldset:not(:first-of-type) {
+            display: none;
         }
 
-        .auth-form .row.name input,.auth-form .row.email input,.auth-form .row.password input {
-            padding: 15px 5px
+        .error {
+            border: 2px solid red;
         }
 
-        .auth-form .row .icon.person {
-            margin-top: 14px
-        }
-
-        .auth-form .row .icon.email {
-            margin-top: 15px
-        }
-
-        .auth-form .row .icon.padlock {
-            margin-top: 11px
-        }
-    }
-
-    html[dir=rtl] .icon {
-        -webkit-transform: rotateY(180deg);
-        -moz-transform: rotateY(180deg);
-        -o-transform: rotateY(180deg);
-        -ms-transform: rotateY(180deg);
-        transform: rotateY(180deg)
-    }
-
-    html[dir=rtl] .external-auth .icon,html[dir=rtl] .icon.tick {
-        -webkit-transform: none;
-        -moz-transform: none;
-        -o-transform: none;
-        -ms-transform: none;
-        transform: none
-    }
-
-    .logo {
-        margin: 40px auto 0 auto;
-    }
-
-    .logo:before {
-        content: '';
-        display: block;
-        margin: auto;
-        width: 80px;
-        height: 80px;
-        -webkit-background-size: 80px;
-        -moz-background-size: 80px;
-        background-size: 80px;
-        background-image: url("http://fileinfo.com/images/icons/files/128/jpg-44.png");
-        background-repeat: no-repeat;
-        background-position: top right
-    }
-
-    @media screen and (max-width: 500px) {
-        .logo {
-            margin-top:20px
-        }
-    }
-
-    @media screen and (max-height: 480px) {
-        .logo {
-            margin-top:10px
-        }
-    }
-
-    .button {
-        cursor: pointer;
-        -webkit-transition: 0.1s -webkit-transform ease-in-out;
-        -moz-transition: 0.1s -moz-transform ease-in-out;
-        -o-transition: 0.1s -o-transform ease-in-out;
-        -ms-transition: 0.1s -ms-transform ease-in-out;
-        transition: 0.1s transform ease-in-out;
-    }
-
-    .button:active {
-        -webkit-transform: scale(.99);
-        -moz-transform: scale(.99);
-        -o-transform: scale(.99);
-        -ms-transform: scale(.99);
-        transform: scale(.99)
-    }
-
-    .button.blue {
-        border: 0 none;
-        background-color: #2b88d9;
-        color: #fff;
-    }
-
-    .button.blue:hover {
-        background-color: #4094dd
-    }
-
-    .button.gray {
-        border: 0 none;
-        background-color: #e6e6e6;
-        color: #777;
-    }
-
-    .button.gray:hover {
-        background-color: #e9e9e9
-    }
-
-    .buttons-external {
-        display: -webkit-box;
-        display: -moz-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: box;
-        display: flex;
-        margin-top: 20px
-    }
-
-    .external-auth {
-        -webkit-box-flex: 1;
-        -moz-box-flex: 1;
-        -o-box-flex: 1;
-        box-flex: 1;
-        -webkit-flex: 1 0 0;
-        -ms-flex: 1 0 0;
-        flex: 1 0 0;
-        margin-right: 10px;
-        width: 50%;
-    }
-
-    .external-auth:last-child {
-        margin-right: 0
-    }
-
-    .external-auth .button {
-        display: block;
-        padding: 10px;
-        background-color: #fff;
-        border: 1px solid #ddd;
-        -webkit-box-shadow: 0 1px 2px rgba(120,120,120,0.05);
-        box-shadow: 0 1px 2px rgba(120,120,120,0.05);
-        -webkit-border-radius: 3px;
-        border-radius: 3px;
-        text-decoration: none;
-        color: #444;
-        text-align: center;
-        font-weight: bold
-    }
-
-    .external-auth.facebook .button {
-        color: #47629c
-    }
-
-    .external-auth.google .button {
-        color: #db4c3f
-    }
-
-    .external-auth.microsoft .button {
-        color: #0072c6
-    }
-
-    .external-auth.twitter .button {
-        color: #2085d2
-    }
-
-    .external-auth.weibo .button {
-        color: #e6162d
-    }
-
-    .external-auth.qq .button {
-        color: #221f25
-    }
-
-    .external-auth .button .icon {
-        width: 28px;
-        height: 28px;
-        display: inline-block;
-        float: left;
-        margin-top: -6px;
-        margin-left: -4px
-    }
-
-    html[dir="rtl"] .external-auth {
-        margin-right: 0;
-        margin-left: 10px;
-    }
-
-    html[dir="rtl"] .external-auth:last-child {
-        margin-left: 0
-    }
-
-    .auth-form.forgot-password {
-        height: initial;
-        min-height: 240px
-    }
-
-    .auth-form.forgot-password-success {
-        height: initial;
-        min-height: 100px
-    }
-
-    .auth-form.forgot-password .row.labels,.auth-form.forgot-password-success .row.labels {
-        height: initial;
-        min-height: 75px;
-        padding: 0 20px;
-    }
-
-    .auth-form.forgot-password .row.labels h2,.auth-form.forgot-password-success .row.labels h2 {
-        text-align: center;
-        font-size: 18px;
-        margin: 20px auto 10px auto;
-        color: #666
-    }
-
-    .auth-form.forgot-password .row.labels h3,.auth-form.forgot-password-success .row.labels h3 {
-        color: #a3a3a2;
-        font-size: 13px;
-        text-align: center;
-        margin: 0 auto;
-        font-weight: normal;
-        margin-bottom: 20px
-    }
-
-    @media screen and (max-height: 480px) {
-        .auth-form.login {
-            height:200px
-        }
-    }
-  </style>
+    </style>
 </head>
 <body>
-  <div class="logo"></div>
+    <!-- Регистрация 1 -->
+    <header class="header">
+        <div class="">
+            <div class="container__white header__card">                                   
+                <div class="header__menu flex">
+                    <a href="{% url 'home' %}" class="header__link-logo">
+                        <img src="{% static 'authentication/recovery/img/header__logo.svg' %}" alt="Logo" class="header__logo" >
+                    </a>                                 
+                </div>
+            </div>                 
+        </div>
+    </header>
+    <main class="main">
+        <section class="registration web-adaptive">
+            <div class="container__white">
+                <div class="flex">
+                    <div class="regestration__student-group">         
+                        <a href="{% url 'home' %}" class="regestration__student-link flex">
+                            <svg width="17" height="27" viewBox="0 0 17 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 3.1725L6.49258 13.5L17 23.8275L13.7652 27L1.31724e-06 13.5L13.7652 -1.41398e-07L17 3.1725Z" fill="#EF476F"/>
+                            </svg>  
+                            Вернуться назад
+                        </a>
+                    </div>
+                    <div class="header__position-home">
+                        <h2 class="registration__title">
+                            Восстановление пароля
+                        </h2>
+                    </div>
+                    
+                </div>
+                <div class="web-adaptive"> 
+                    <ul class="list-reset registration__list-form flex" id="progressbar">
+                        <li class="test active">
+                            <div class="flex registration__img-group">
+                                <div class="registration__not-stage swipe-1-before registration__img-box"></div> 
+                                <p class="registration__stage registration__img-box swipe swipe-1">
+                                    1
+                                </p>
+                                <svg class="registration__img-line" width="362" height="9" viewBox="0 0 362 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="362" height="9" fill="#3F43C5"/>
+                                </svg>
+                            </div>
+                        </li>  
+                        <li class="test">
+                            <div class="flex registration__img-group"> 
+                                <div class="registration__not-stage swipe-2-before registration__img-box"></div>
+                                <p class="registration__stage registration__img-box swipe swipe-2">
+                                    2
+                                </p>                                                    
+                            </div>                                                       
+                        </li>                                                       
+                    </ul>
+                </div>
 
-  <div class="card forgot-password">
-    <form action="{% url 'reset_password' %}" method="POST" class="auth-form forgot-password">
-      {% csrf_token %}
+                <form id="msform" action="{% url 'reset_password' %}"  method="post">
+                    {% csrf_token %}
 
-      <div class="row labels">
-        <h2>Forgot your password?</h2>
-        <h3>Don't worry. Just enter your email address below, and we'll send you some instructions.</h3>
-      </div>
+                    <fieldset>
+                        <ul class="list-reset registration__list">
+                        <li class="registration__items flex web-adaptive">
+                        <p class="registration__text">
+                            Почта
+                        </p>
+                        <div class="registration__input-remark">
+                            <input type="email" name="email" id="id_email" placeholder="Введите почту" class="registration__input" required/>
+                            <p class="registration__remark">
+                            </p>
+                        </div>
+                        </li>
+                        </ul>
 
-      <div class="row email">
-        <span class="icon email">
-        <i class="fa fa-envelope-o fa-lg"></i></span>
-        <input type="email" name="email" id="id_email" required autofocus autocomplete pattern="^[^\s@＠=]+[@|＠][^\.\s@＠]+(\.[^\.\s@＠]+)+$" title="Please enter a valid email address." placeholder="Email" />
-      </div>
+                        
+                        <div class="registration__button-position flex">
 
-      <div class="row submit">
-        <input type="submit" class="button big blue" value="Reset Password" />
-      </div>
-    </form>
+                        <input type="submit" name="next" class="next action-button registration__button" value="Далее"/>
+                        </div>
+                    </fieldset>
+                </form>
+        
+               
+            </div>
+        </section>     
+    </main>
+    
+    <footer>
+        <div class="container__blue-footer footer__position flex">
+            <a href="{% url 'home' %}" class="footer__logo">
+                <img src="{% static 'authentication/recovery/img/footer__logo.svg' %}" alt="Logo" class="header__logo" >
+            </a>
+        </div>
+    </footer>
 
-    <span class="link login">
-    Have an account already?
-    <a href="/login">Sign In</a>
-  </span>
-  </div>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>  
+
+    <script>
+
+        let id_username = document.querySelector('#id_username');
+        let id_email = document.querySelector('#id_email');
+        let id_password1 = document.querySelector('#id_password1');
+        let id_password2 = document.querySelector('#id_password2');
+        let first_name = document.querySelector('#first_name');
+        let last_name = document.querySelector('#last_name');
+        let patronymic_name = document.querySelector('#patronymic_name');
+        let phone = document.querySelector('#phone');
+        let university = document.querySelector('#university');
+        let university_faculty = document.querySelector('#university_faculty');
+        let university_specitality = document.querySelector('#university_specitality');
+        let university_course = document.querySelector('#university_course');
+        
+        var values1 = [id_username, id_password1, id_password2, id_email];
+
+        const form = document.querySelector('form');
+        var page = 1;
+
+    
+    //jQuery time
+    var current_fs, next_fs, previous_fs; //fieldsets
+    var left, opacity, scale; //fieldset properties which we will animate
+    var animating; //flag to prevent quick multi-click glitches
+
+    $(".next").click(function(){
+        if (page == 1) {
+            values1.forEach(element => {
+                if (element.value == '') {
+                    element.classList.add('error');
+                }
+            });
+        }
+        
+        
+        if (id_username.value != ''){
+            if(animating) return false;
+            animating = true;
+
+            if (page == 1) {
+            values1.forEach(element => {
+                if (element.value != '') {
+                    element.classList.remove('error');
+                }
+            });
+        }
+
+
+
+            current_fs = $(this).parent().parent();
+            next_fs = $(this).parent().parent().next();
+
+            //activate next step on progressbar using the index of next_fs
+            $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+            $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+            
+
+            
+            //show the next fieldset
+            next_fs.show();
+            page += 1;
+            //hide the current fieldset with style
+            current_fs.animate({opacity: 0}, {
+                step: function(now, mx) {
+                    //as the opacity of current_fs reduces to 0 - stored in "now"
+                    //1. scale current_fs down to 80%
+                    scale = 1 - (1 - now) * 0.2;
+                    //2. bring next_fs from the right(50%)
+                    left = (now * 20)+"%";
+                    //3. increase opacity of next_fs to 1 as it moves in
+                    opacity = 1 - now;
+                    current_fs.css({
+                'transform': 'scale('+scale+')',
+                'position': 'absolute'
+            });
+                    next_fs.css({'left': left, 'opacity': opacity});
+                },
+                duration: 600,
+                complete: function(){
+                    current_fs.hide();
+                    animating = false;
+                },
+                //this comes from the custom easing plugin
+                easing: 'easeInOutBack'
+            });
+        };
+        });
+
+    $(".previous").click(function(){
+        if(animating) return false;
+        animating = true;
+
+        current_fs = $(this).parent().parent();
+        previous_fs = $(this).parent().parent().prev();
+
+
+        //show the previous fieldset
+        $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+        $("#progressbar li").eq($("fieldset").index(previous_fs)).addClass("active");
+        previous_fs.show();
+        page -= 1;
+        //hide the current fieldset with style
+        current_fs.animate({opacity: 0}, {
+            step: function(now, mx) {
+                //as the opacity of current_fs reduces to 0 - stored in "now"
+                //1. scale previous_fs from 80% to 100%
+                scale = 0.8 + (1 - now) * 0.2;
+                //2. take current_fs to the right(50%) - from 0%
+                left = ((1-now) * 20)+"%";
+                //3. increase opacity of previous_fs to 1 as it moves in
+                opacity = 1 - now;
+                current_fs.css({'left': left});
+                previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
+            },
+            duration: 600,
+            complete: function(){
+                current_fs.hide();
+                animating = false;
+            },
+            //this comes from the custom easing plugin
+            easing: 'easeInOutBack'
+        });
+    });
+
+    </script>
+  
 </body>
 </html>

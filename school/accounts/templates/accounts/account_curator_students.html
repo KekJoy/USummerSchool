@@ -1,23 +1,230 @@
 {% load static %}
 {% load has_group %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="{% static 'accounts/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/style_curator.css' %}">
+    <title>U Summer School</title>
+    <link rel="stylesheet" href="https://unpkg.com/accordion-js@3.3.2/dist/accordion.min.css">
 </head>
 <body>
-  {% for student in students %}
-  {% if student.profile.user.is_active and request.user|has_group:"Student" and not student.profile.user.is_superuser%}
-  <div style="border: dashed red; margin-bottom: 10px;">
-    <p>Имя: {{ student.profile.first_name }}</p>
-    <p>Фамилия: {{ student.profile.last_name }}</p>
-    <p>Отчество: {{ student.profile.patronymic_name }}</p>
-    <p>Направление: {{ student.program_list.title }}</p>
-    <a href="{% url 'lk_account_curator_student_task' student.pk %}">Проверить тестовое задание</a>
-  </div>
+    <header class="header">
+        <div class="">
+            <div class="container__blue header__card">
+                <div class="header__menu flex">
+                    <a href="{% url 'home' %}" class="header__link-logo">
+                        <img src="{% static 'accounts/img/header__logo.svg' %}" alt="Logo" class="header__logo" >
+                    </a>
+                    <div class="header__position-home">
+                        <a href="{% url 'account_student' %}" class="header__link-home profile">
+                            Профиль
+                        </a>
+                        {% if request.user|has_group:"Student" %}
+                        <a href="{% url 'lk_account_student_programs' %}" class="header__link-home program">
+                            Мои направления
+                        </a>
+                        {% endif %}
+                        {% if request.user|has_group:"Curator" %}
+                        <a href="{% url 'lk_account_curator_students' %}" class="header__link-home program activ">
+                            Список кандидатов
+                        </a>
+                        {% endif %}
+                    </div>
+                    <div class="flex">
+                        <div class="flex">
+                            <button class="button-reset button__bell">
+                                <svg width="29" height="40" viewBox="0 0 29 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14.5 40C16.4937 40 18.125 38.4308 18.125 36.5128H10.875C10.875 38.4308 12.5063 40 14.5 40ZM25.375 29.5385V20.8205C25.375 15.4677 22.4206 10.9867 17.2188 9.80103V8.61538C17.2188 7.16821 16.0044 6 14.5 6C12.9956 6 11.7812 7.16821 11.7812 8.61538V9.80103C6.5975 10.9867 3.625 15.4503 3.625 20.8205V29.5385L0 33.0256V34.7692H29V33.0256L25.375 29.5385ZM21.75 31.2821H7.25V20.8205C7.25 16.4964 9.98687 12.9744 14.5 12.9744C19.0131 12.9744 21.75 16.4964 21.75 20.8205V31.2821Z" fill="#3F43C5"/>
+                                    <circle cx="24" cy="5" r="5" fill="#EF476F"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="personal-account-mini">
+                            <div class="flex program__list-items">
+                                <button class="button-reset flex popup-btn header__more-group" onclick="myFunction()">
+                                    <img src="{% static 'accounts/img/mini-photo.png' %}" alt="mini-photo" class="popup-btn mini-photo__size">
+                                    <svg width="23" height="16" viewBox="0 0 23 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="header__button-more popup-btn">
+                                        <path d="M2.7025 0.5L11.5 9.77125L20.2975 0.5L23 3.35425L11.5 15.5L0 3.35425L2.7025 0.5Z" fill="#3F43C5"/>
+                                    </svg>
+                                </button>
+                                <div class="popup-window" id="myDropdown">
+                                    <div class="form-container popup-window__body flex">
+                                        <div class="popup-window__photo-space">
+                                            <img src="{% static 'accounts/img/mini-photo.png' %}" alt="mini-photo" class="mini-photo__size">
+                                        </div>
 
-  {% endif %}
-  {% endfor %}
+                                        <div class="popup-window__text-space">
+                                            <p class="popup-window__title">
+                                                {{ user.profile.last_name }} {{ user.profile.first_name }} {{ user.profile.patronymic_name }}
+                                            </p>
+                                            <ul class="list-reset popup-window__list">
+                                                <li class="popup-window__text">
+                                                    <a href="{% url 'account_student' %}">Профиль</a>
+
+                                                </li>
+                                                <li class="popup-window__text">
+                                                    <a href="{% url 'account_student' %}">Мои направления</a>
+
+                                                </li>
+                                                <li class="popup-window__text">
+                                                    <a href="{% url 'logout' %}">Выйти из аккаунта</a>
+
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="">
+                                            <button type="button" class="button-reset popup-btn-close">
+                                                <img src="{% static 'accounts/img/arrow.svg' %}" alt="" class="popup-btn-close">
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div> 
+                    </div>
+                </div>                           
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <section class="account__student">
+
+            <div class="container__white">
+            
+            <div class="account__programs">
+                <div class="web-adaptive">
+                    <div class="flex account__student-maintenance">
+                        <h2 class="account__student-title">
+                            Список кандидатов
+                        </h2>                 
+                    </div>
+                </div>
+                
+            </div>
+            <div>
+
+            </div>
+            <div class="web-adaptive">
+                <div class="web-adaptive account__student-program-list">
+                    <ul class="list-reset account__curator-students-list">
+                        <li class="flex account__curator-students-item">
+                            <div class="account__curator-student-bio-title">ФИО кандидата</div>
+                            <div class="account__curator-student-program-title">Направление</div>
+                            <div class="account__curator-student-is-solved-title">Статус решения</div>
+                            <div class="account__curator-student-is-checked-title">Статус проверки</div>
+                        </li>
+                        {% for student in students %}
+                          {% if student.profile.user.is_active and not student.profile.user.is_superuser%}
+
+                        <li class="flex account__curator-students-item">
+                            <div class="account__curator-student-bio">{{ student.profile.last_name }} {{ student.profile.first_name }} {{ student.profile.patronymic_name }}</div>
+                            <div class="account__curator-student-program">{{ student.program_list.title }}</div>
+                            <div class="flex account__curator-student-is-solved">
+                                {% if student.profile.is_completed %}
+                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="8.01074" cy="8" r="8" fill="#3EDAA2"/>
+                                    </svg> 
+                                <p class="status__text">Решено</p>
+                                {% else %}
+                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="8.01074" cy="8.00098" r="8" fill="#D9D9D9"/>
+                                </svg>
+
+                                <p class="status__text">В процессе</p>
+                                {% endif %}
+                            </div>
+                            <div class="flex account__curator-student-is-checked">
+                                {% if not student.profile.is_checked %}
+                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="8.00391" cy="8" r="8" fill="#EF476F"/>
+                                    </svg>
+                                    
+                                <p class="status__text">Не проверено</p>
+                                {% else %}
+                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="8.00391" cy="8.00098" r="8" fill="#3EDAA2"/>
+                                </svg>
+
+
+                                <p class="status__text">Проверено</p>
+                                {% endif %}
+                            </div>
+                            <div class="account__curator-student-check">
+                                <button class="student__button button-reset">
+                                    <a href="{% url 'lk_account_curator_student_task' student.pk %}" class="">
+                                        Проверить работу
+                                    </a>                            
+                                </button>
+                            </div>
+                            <div class="account__curator-student-comment">
+                                <a href="#">
+                                    <svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M27.0039 3V22.755L25.2489 21H3.00391V3H27.0039ZM27.0039 0H3.00391C1.35391 0 0.00390625 1.35 0.00390625 3V21C0.00390625 22.65 1.35391 24 3.00391 24H24.0039L30.0039 30V3C30.0039 1.35 28.6539 0 27.0039 0ZM24.0039 15H6.00391V18H24.0039V15ZM24.0039 10.5H6.00391V13.5H24.0039V10.5ZM24.0039 6H6.00391V9H24.0039V6Z" fill="#3F43C5"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </li>
+                        {% endif %}
+                          {% endfor %}
+                        
+                    </ul>
+                </div>
+
+            </div>
+            </div>       
+        </section>     
+    </main>
+
+    <footer>
+        <div class="container__blue-footer footer__position flex">
+            <a href="{% url 'home' %}" class="footer__logo">
+                <img src="{% static 'accounts/img/footer__logo.svg' %}" alt="Logo" class="header__logo" >
+            </a>
+        </div>
+    </footer>
+
+    
+    
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>  
+
+    <script src="https://kit.fontawesome.com/d8bd919f93.js" crossorigin="anonymous"></script>
+
+    <script src="script.js"></script>
+    <script>
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.popup-btn')) {
+
+                var dropdowns = document.getElementsByClassName("popup-window");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    console.log(event.target.classList.contains('popup-btn-close'));
+                    console.log(event.target.classList);
+                    if (openDropdown.classList.contains('show') && event.target.classList.contains('popup-btn-close')) {
+                        openDropdown.classList.remove('show');
+                    }
+
+                    if (!openDropdown.classList.contains('show')) {
+                        document.querySelector('meta[name="user-scalable"]').setAttribute("no", _desc);
+                    }
+                }
+            }
+        }
+    </script>
 </body>
 </html>

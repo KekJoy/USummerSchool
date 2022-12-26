@@ -11,7 +11,7 @@ class Profile(models.Model):
     first_name = models.CharField(max_length=30, blank=True)
     last_name = models.CharField(max_length=30, blank=True)
     patronymic_name = models.CharField(max_length=30, blank=True)
-    phone = models.CharField(max_length=11, blank=True)
+    phone = models.CharField(max_length=13, blank=True)
     university = models.CharField(max_length=100, blank=True)
     university_faculty = models.CharField(max_length=100, blank=True)
     university_specitality = models.CharField(max_length=100, blank=True)
