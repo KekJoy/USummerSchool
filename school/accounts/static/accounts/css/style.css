@@ -1,5 +1,6 @@
 html {
     box-sizing: border-box;
+
 }
 
 *,
@@ -66,6 +67,11 @@ html {
     src:  url("../fonts/QuinqueFive.ttf");
 }
 
+@font-face {
+    font-family: Montserrat-Regular;
+    src: url("../fonts/Montserrat-Regular.ttf")
+}
+
 p {
     margin: 0;
     padding: 0;
@@ -113,7 +119,7 @@ body {
 }
 
 .container__blue {
-    background-color: var(--blue);
+    background-color: var(--white);
     margin: 0 auto;
     width: 100%;
     margin-bottom: 100px;
@@ -203,10 +209,23 @@ body {
 }
 
 .header__link-home {
-    color: var(--white);
+    color: var(--blue);
     font-size: 24px;
-    margin-right: 350px;
+    margin-left: 60px;
     font-weight: 600;
+}
+
+.activ {
+    border-bottom: 4px solid var(--blue);
+}
+
+.header__button-more {
+    margin-top: 29px;
+    margin-left: 28px;
+}
+
+.header__more-group {
+    margin-right: 140px;
 }
 
 .header__content {
@@ -221,7 +240,6 @@ body {
     margin-bottom: 36px;
     font-weight: 700;
 }
-
 
 .header__content-img {
     margin-left: 142px;
@@ -242,6 +260,23 @@ body {
     margin-top: 147px;
 }
 
+.mini-photo__size {
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+
+}
+
+.popup-window__photo-space {
+    margin-right: 12px;
+}
+
+.popup-window__text-space {
+    margin-right: 24px;
+    min-width: 214px;
+}
+
+
 /* About account */
 
 .account__student {
@@ -251,7 +286,7 @@ body {
 }
 
 .account__student-title {
-    font-size: 80px;
+    font-size: 48px;
     font-weight: 700;
     color: var(--blue);
     margin-right: 40px;
@@ -262,8 +297,8 @@ body {
 }
 
 .account__student-button {
-    font-size: 24px;
-    padding: 24px 56px 24px 56px;
+    font-size: 20px; 
+    padding: 12px 30px;
     color: var(--white);
     background-color: var(--pink);
     border-radius: 12px;
@@ -334,8 +369,6 @@ body {
     
 }
 
-
-
 .about__text-block {
     margin-bottom: 45px;
     align-items: center;
@@ -365,11 +398,6 @@ body {
 
 /* accaunt st*/
 
-.account__student-title {
-    font-weight: 700;
-    font-size: 60px;
-}
-
 .account__student-maintenance {
     flex-wrap: wrap;
     gap: 0px 20px;
@@ -395,21 +423,26 @@ body {
 .account__student-personal-info {
     min-width: 1636px;
     justify-content: flex-start;
-    align-items: center;
     margin-bottom: 80px;
 }
 
 .account__student-info {
     display: grid;
 
-    grid-template-columns: 293px auto;
-    grid-template-rows: 69px 29px 29px;
-    grid-template-areas: 
+    grid-template-columns: 175px auto;
+    grid-template-rows: 69px 29px 29px 84px;
+    grid-template-areas:
     "title title"
+    'conact conact'
     'tel number'
     'mail value';
 
-    gap: 40px 50px;
+    gap: 24px 40px;
+    margin-bottom: 50px;
+}
+
+.account__student-conact {
+    grid-area: conact;
 }
 
 .account__student-tel {
@@ -435,19 +468,23 @@ body {
 .account__student-educate-info {
     display: grid;
 
-    grid-template-columns: 293px 680px;
-    grid-template-rows: repeat(2, 68px) repeat(2, 34px);
-    grid-template-areas: 
+    grid-template-columns: 300px 680px;
+    grid-template-rows: 45px repeat(4, 45px);
+    grid-template-areas:
+    'edu edu'
     "school school-value"
     'department department-value'
     'specification specification-value'
     'course course-value';
 
-    gap: 40px 50px;
+    gap: 20px 40px;
     justify-content: center;
     
-    margin-left: 155px;
     margin-bottom: 130px;
+}
+
+.account__student-edu {
+    grid-area: edu;
 }
 
 .account__student-school {
@@ -476,7 +513,7 @@ body {
 }
 
 .account__student-link {
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 600;
     color: var(--pink);
     cursor: pointer;
@@ -519,36 +556,40 @@ body {
 
 .account__student-photo {
     border-radius: 50%;
-    width: 330px;
-    height: 330px;
+    width: 253px;
+    height: 253px;
     margin-right: 58px;
 }
 
 .account__student-name {
     color:#3F43C5;
     font-weight: 600;
-    font-size: 54px;
+    font-size: 36px;
     grid-area: title;
 }
 
-
+.button__bell {
+    margin-right: 28px;
+}
 
 .account__student-text {
-    font-size: 28px;
+    font-family: Montserrat-Regular;
+    font-size: 20px;
     color: var(--blue);
     font-weight: 400;
+    line-height: 24px;
+}
+
+.account__student-prefix-title {
+    font-size: 22px;
+    color: var(--blue);
+    font-weight: 600;
 }
 
 .account__student-prefix {
-    font-size: 28px;
+    font-size: 20px;
     color: var(--blue);
-    font-weight: 600;
-}
-
-.account__student-title-info {
-    font-size: 48px;
-    color: var(--blue);
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .account__student-card {
@@ -556,22 +597,29 @@ body {
     border-radius: 12px;
     border-style: solid;
     border-color: var(--blue);
-    padding: 42px 60px;
-    width: 1636px;
-    margin-bottom: 40px;
+    padding: 48px 44px;
+    width: 800px;
+}
+
+.account__student-program-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px 30px;
+    max-width: 1680px;
+    justify-content: space-between;
 }
 
 .account__student-program {
     font-size: 28px;
     color: var(--white);
-    font-weight: 600;
+    font-weight: 700;
     max-width: 600px;
     margin-right: auto;
 }
 
 .account__student-button {
-    font-size: 24px;
-    padding: 16px 42px;
+    font-size: 20px;
+    padding: 12px 30px;
     color: var(--white);
     background-color: var(--pink);
     border-radius: 12px;
@@ -621,16 +669,44 @@ body {
 }
 
 .account__student-status {
-    max-width:168px;
     color: var(--white);
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 600;
-    margin-right: 40px;
-    text-align: right;
+    margin-right: 24px;
+}
+
+.account__student-type {
+    color: var(--white);
+    font-size: 22px;
+    font-weight: 400;
 }
 
 .account__student-card-position {
     align-items: center;
+    display: grid;
+
+    grid-template-columns: 340px 184px 179px;
+    grid-template-rows: 68px 54px;
+    grid-template-areas:
+    'card-title card-title card-title'
+    "card-status card-button card-info ";
+
+    gap: 30px 0px;
+    justify-content: center;
+}
+
+.account__student-card-title {
+    grid-area: card-title;
+}
+
+.account__student-card-status {
+    grid-area: card-status;
+}
+.account__student-card-button {
+    grid-area: card-button;
+}
+.account__student-card-info {
+    grid-area: card-info;
 }
 
 /* footer */
@@ -687,3 +763,46 @@ body {
         zoom: 66%;
     }    
 }
+
+.popup-window {
+  display: none;
+  position: absolute;
+  right: 140px;
+  top: 40px;
+  width: 410px;
+  z-index: 100;
+}
+
+.popup-window__title {
+    max-width: 214px;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 21px;
+    color: var(--blue);
+    word-wrap:break-word;
+    width:100%;
+    left:0;
+    margin-bottom: 19px;
+}
+
+.popup-window__text {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    color: var(--blue);
+    max-width: 214px;
+}
+
+.popup-window__body {
+    max-width: 410px;
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0px 4px 18px 0px rgba(63,67,197,0.18);
+    padding: 25px 34px 30px 28px;
+}
+
+.popup-window__text:not(:last-child) {
+    margin-bottom: 12px;
+}
+
+.show {display: block;}

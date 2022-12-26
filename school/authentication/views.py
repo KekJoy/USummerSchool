@@ -1,7 +1,7 @@
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render
 import random
-
+from django.contrib.auth.models import Group
 from django.contrib.auth import get_user_model
 from django.contrib.sites.shortcuts import get_current_site
 from django.shortcuts import render, redirect
@@ -57,7 +57,7 @@ def registration_user(request):
 
                 username = form.cleaned_data.get('username')
                 messages.success(request, f'Создан аккаунт {username}!')
-                return redirect('registration')  # TODO: уведомление об отправке письма,
+                return redirect('mail_sent')  # TODO: уведомление об отправке письма,
         else:
             form = SignUpFrom()
             profile = ProfileForm()
@@ -74,6 +74,11 @@ def registration_user(request):
 
 """Функция активации акканута пользователя"""
 
+def mail_sent(request):
+    return render(request, 'authentication/registration/mail_sent.html')
+
+def mail_done(request):
+    return render(request, 'authentication/registration/registration_done.html')
 
 def mail_accept(request, uidb64, token):
     User = get_user_model()
@@ -84,8 +89,10 @@ def mail_accept(request, uidb64, token):
         user = None
     if user is not None and account_activation_token.check_token(user, token):
         user.is_active = True
+        group = Group.objects.get(name='Student')
+        user.groups.add(group)
         user.save()
-        return HttpResponse('Thank you!')
+        return redirect('mail_done')
     else:
         return HttpResponse('INVALID!')
 

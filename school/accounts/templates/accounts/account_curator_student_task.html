@@ -1,62 +1,108 @@
 {% load static %}
-{% load has_group %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'accounts/css/normalize.css'%}">
+    <link rel="stylesheet" href="{% static 'accounts/css/style_solve.css'%}">
+    <title>U Summer School</title>
+    <link rel="stylesheet" href="https://unpkg.com/accordion-js@3.3.2/dist/accordion.min.css">
 </head>
 <body>
-    {% for task_answer in task_answers %}
-    <div style="border: dashed red; margin-bottom: 10px;">
-       <p>Название задания: {{ task_answer.task.title }}</p>
-       <p>Описание задания: {{ task_answer.task.description }}</p>
-       <p>Ответ студента: {{ task_answer.answer}}</p>
+    <header class="header">
+        <div class="">
+            <div class="container__blue header__card">
+                <div class="header__menu flex">
+                    <a href="{% url 'home' %}" class="header__link-logo">
+                        <img src="{% static 'accounts/img/footer__logo.svg'%}" alt="Logo" class="header__logo" >
+                    </a>
+                    <div class="header__position-home">
+                        <a href="{% url 'home' %}" class="header__link-home">
+                            Главная страница
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <section class="test web-adaptive">
+            <ul class="list-reset">
+
+
+            {% for task_answer in task_answers %}
+            <li style="margin-bottom: 20px;">
+    <div>
+       <p class="test__task" style="margin-bottom:20px;">Название задания: {{ task_answer.task.title }}</p>
+       <p class="test__text"style="margin-bottom:10px;">Описание задания: {{ task_answer.task.description }}</p>
+       <p class="test__text" style="margin-bottom:10px;">Ответ студента: {{ task_answer.answer}}</p>
         <form action="" method="post">
             {% csrf_token %}
             <p>Оценить ответ студента:</p>
             <input type="text" name="token" id="{{ task_answer.id }}" value="{{ task_answer.id }}" hidden="">
             {% if task_answer.grade == 'A' %}
-            <p><input type="radio" name="grade" id="A" value="A" checked> 5</p>
+            <div style="display: flex;  gap: 10px 10px;">
+                <p><input type="radio" name="grade" id="A" value="A" checked> 5</p>
             <p><input type="radio" name="grade" id="B" value="B" > 4</p>
             <p><input type="radio" name="grade" id="C" value="C" > 3</p>
             <p><input type="radio" name="grade" id="D" value="D" > 2</p>
             <p><input type="radio" name="grade" id="F" value="F" > 1</p>
+            </div>
+
             {% elif task_answer.grade == 'B' %}
+            <div style="display: flex; gap: 10px 10px;">
             <p><input type="radio" name="grade" id="A" value="A" > 5</p>
             <p><input type="radio" name="grade" id="B" value="B" checked> 4</p>
             <p><input type="radio" name="grade" id="C" value="C" > 3</p>
             <p><input type="radio" name="grade" id="D" value="D" > 2</p>
             <p><input type="radio" name="grade" id="F" value="F" > 1</p>
+            </div>
             {% elif task_answer.grade == 'C' %}
+            <div style="display: flex;  gap: 10px 10px;">
             <p><input type="radio" name="grade" id="A" value="A" > 5</p>
             <p><input type="radio" name="grade" id="B" value="B" > 4</p>
             <p><input type="radio" name="grade" id="C" value="C" checked> 3</p>
             <p><input type="radio" name="grade" id="D" value="D" > 2</p>
             <p><input type="radio" name="grade" id="F" value="F" > 1</p>
+            </div>
             {% elif task_answer.grade == 'D' %}
+            <div style="display: flex;  gap: 10px 10px;">
             <p><input type="radio" name="grade" id="A" value="A" > 5</p>
             <p><input type="radio" name="grade" id="B" value="B" > 4</p>
             <p><input type="radio" name="grade" id="C" value="C" > 3</p>
             <p><input type="radio" name="grade" id="D" value="D" checked> 2</p>
             <p><input type="radio" name="grade" id="F" value="F" > 1</p>
+            </div>
             {% elif task_answer.grade == 'F' %}
+            <div style="display: flex;  gap: 10px 10px;">
             <p><input type="radio" name="grade" id="A" value="A" > 5</p>
             <p><input type="radio" name="grade" id="B" value="B" > 4</p>
             <p><input type="radio" name="grade" id="C" value="C" > 3</p>
             <p><input type="radio" name="grade" id="D" value="D" > 2</p>
             <p><input type="radio" name="grade" id="F" value="F" checked> 1</p>
-            {% else %}
+            </div>
+            {% else %}<div style="display: flex; gap: 10px 10px;">
             <p><input type="radio" name="grade" id="A" value="A" > 5</p>
             <p><input type="radio" name="grade" id="B" value="B" > 4</p>
             <p><input type="radio" name="grade" id="C" value="C" > 3</p>
             <p><input type="radio" name="grade" id="D" value="D" > 2</p>
             <p><input type="radio" name="grade" id="F" value="F" > 1</p>
+        </div>
             {% endif %}
 
-            <input type="submit" value="Оценить">
+            <input style="margin-top: 10px;" type="submit" value="Оценить">
         </form>
     </div>
     {% endfor %}
+            </li>
+</ul>
+        </section>
+    </main>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 </body>
 </html>

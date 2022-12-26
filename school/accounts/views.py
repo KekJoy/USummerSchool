@@ -37,7 +37,7 @@ def edit(request):
         form = CustomUserChangeForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
-            return redirect('lk_account_student')
+            return redirect('account_student')
     else:
         form = CustomUserChangeForm(instance=profile)
     return render(request, 'accounts/account_student_edit.html')
@@ -80,10 +80,11 @@ def edit_programs(request):
             # TODO: При удалении направления пользователем (снятие чекбоксов),
             #  в модели Programs удаляется направление за пользователем
 
-            return render(request, 'accounts/account_student_program_change.html', context=context)
-        return redirect('lk_account_student')
+            redirect('lk_account_student_programs')
+        return redirect('lk_account_student_programs')
     else:
         return render(request, 'accounts/account_student_program_change.html', context=context)
+
 
 
 class ViewPrograms(ListView):
@@ -153,7 +154,7 @@ def solve_task(request, pk, task):
         form = TaskSolveForm(request.POST)
         if form.is_valid() and not TaskAnswer.objects.filter(
                 programs=Programs.objects.get(profile=profile, program_list=pk),
-                task=TaskList.objects.get(number=task)).exists():
+                task=TaskList.objects.get(number=task, program=pk)).exists():
             answer = form.cleaned_data['answer']
             task_list = form.save(commit=False)
             task_list.answer = answer
@@ -165,12 +166,16 @@ def solve_task(request, pk, task):
 
 
         # return render(request, 'users/test.html', context={'test': test})
-        return redirect(reverse('lk_account_student_task_solve', kwargs={'pk': pk, 'task': str(int(task) + 1)}))
+        if TaskList.objects.filter(program=pk, number=str(int(task) + 1)).exists():
+
+            return redirect(reverse('lk_account_student_task_solve', kwargs={'pk': pk, 'task': str(int(task) + 1)}))
+        else:
+            return redirect('lk_account_student_programs')
 
     return render(request, 'accounts/account_student_view_task.html', context=context)
 
 
-@login_required
+
 def view_students(request):
     context = {
         'task_answers': TaskAnswer.objects.all(),
@@ -216,20 +221,20 @@ def create_program(request):
             program_list.title = title
             program_list.save()
             messages.success(request, 'Program Successfully')
-        return render(request, 'registration_acc/create_program.html')
+        return render(request, 'accounts/account_admin_programs_create.html')
 
-    return render(request, 'registration_acc/create_program.html')
+    return render(request, 'accounts/account_admin_programs_create.html')
 
 
 class ProgramView(ListView):
     model = ProgramList
-    template_name = 'registration_acc/programs.html'
+    template_name = 'accounts/account_admin_programs.html'
     context_object_name = 'programs'
 
 
 class ProgramUpdateView(UpdateView):
     model = ProgramList
-    template_name = 'registration_acc/programs_update.html'
+    template_name = 'accounts/account_admin_programs_update.html'
     fields = ['title', ]
     context_object_name = 'program'
 
@@ -265,6 +270,6 @@ def test_create(request, pk):
 
             task_list.save()
             messages.success(request, 'Task Successfully')
-        return render(request, 'registration_acc/blya.html')
+        return render(request, 'accounts/account_admin_task_create.html')
 
-    return render(request, 'registration_acc/blya.html')
+    return render(request, 'accounts/account_admin_task_create.html')

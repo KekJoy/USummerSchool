@@ -1,16 +1,72 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'accounts/css/normalize.css'%}">
+    <link rel="stylesheet" href="{% static 'accounts/css/style_solve.css'%}">
+    <title>U Summer School</title>
+    <link rel="stylesheet" href="https://unpkg.com/accordion-js@3.3.2/dist/accordion.min.css">
 </head>
 <body>
-{{ task.title }}
-{{ task.description }}
-<form action="{% url 'lk_account_student_task_solve' pk=pk_id task=task.number %}" method="post">
-    {% csrf_token %}
-    <input type="text" name="answer" id="answer" required>
-    <input type="submit" value="Submit">
-</form>
+    <header class="header">
+        <div class="">
+            <div class="container__blue header__card">
+                <div class="header__menu flex">
+                    <a href="{% url 'home' %}" class="header__link-logo">
+                        <img src="{% static 'accounts/img/footer__logo.svg'%}" alt="Logo" class="header__logo" >
+                    </a>
+                    <div class="header__position-home">
+                        <a href="{% url 'home' %}" class="header__link-home">
+                            Главная страница
+                        </a>
+                    </div>
+                </div>                           
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <section class="test web-adaptive">
+            <form action="{% url 'lk_account_student_task_solve' pk=pk_id task=task.number %}" method="post">
+            {% csrf_token %}
+            <div class="test__main">
+                <div class="test__main-exit">
+                    <a href="{% url 'lk_account_student_programs' %}" class="test__link">
+                        Вернуться назад
+                    </a>
+                </div>
+                <div class="test__title-posution test__main-title">
+                    <h1 class="test__title">
+                        {{ task.program.title }}
+                    </h1>
+                </div>
+                <div class="test__main-task">
+                    <h2 class="test__task">
+                        Задание №{{ task.number }} {{task.title}}
+                    </h2>
+                </div>
+                <div class="test__main-task-description">
+                    <p class = "test__text">
+                        {{ task.description}}
+                    </p>
+                </div>
+                <div class="test__main-input">
+                    <input type="text" name="answer" id="answer" required placeholder="Введите ответ" class="test__input">
+                </div>
+                <div class="test__main-button">
+                    <input type="submit" class="test__button"  value="Отправить">
+                </div>
+
+            </div>
+            </form>
+
+        </section>
+    </main>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
 </body>
 </html>

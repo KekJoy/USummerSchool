@@ -1,4 +1,5 @@
 {% load static %}
+{% load has_group %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -992,12 +993,10 @@ body {
                         <a href="{% url 'login' %}#popup1 " class="header__link">
                             Вход
                         </a>
-                        <button href="" class="button-reset header__button">
-                            <a href="{% url 'registration' %}">
+                            <a href="{% url 'registration' %}" class="button-reset header__button">
                                 Регистрация
                             </a>
 
-                        </button>
                     </div>
                 </div>
                 {% else %}
@@ -1057,17 +1056,28 @@ body {
                                         </div>            
                                         <div class="popup-window__text-space">
                                             <p class="popup-window__title">
-                                                Иван Иванов Иванович
+                                                {{ user.profile.last_name }} {{ user.profile.first_name }} {{ user.profile.patronymic_name }}
                                             </p>
                                             <ul class="list-reset popup-window__list">
                                                 <li class="popup-window__text">
                                                     <a href="{% url 'account_student' %}">Профиль</a>
                                                     
                                                 </li>
+                                                {% if request.user|has_group:"Student" %}
                                                 <li class="popup-window__text">
-                                                    <a href="{% url 'account_student' %}">Мои направления</a>
-                                                    
+                                                    <a href="{% url 'lk_account_student_programs' %}">Мои направления</a>
                                                 </li>
+                                                {% endif %}
+                                                {% if request.user|has_group:"Curator" %}
+                                                <li class="popup-window__text">
+                                                    <a href="{% url 'lk_account_curator_students' %}">Список кандидатов</a>
+                                                </li>
+                                                {% endif %}
+                                                {% if request.user|has_group:"Administrator" %}
+                                                <li class="popup-window__text">
+                                                    <a href="{% url 'programs' %}">Редактор заданий</a>
+                                                </li>
+                                                {% endif %}
                                                 <li class="popup-window__text">
                                                     <a href="{% url 'logout' %}">Выйти из аккаунта</a>
                                                     
@@ -1519,11 +1529,11 @@ body {
         <section>
             <div class="container__blue action__container">
                 <p class="action__title">Участвуй в отборе!</p>
-                    <button class="about__school-button button-reset action__button">
-                        <a href="{% url 'registration' %}">
+
+                        <a href="{% url 'registration' %}" class="about__school-button button-reset action__button">
                             Зарегистрироваться
                         </a>
-                    </button>
+
             </div>
         </section>
         {% endif %}

@@ -1,0 +1,235 @@
+{% load static %}
+{% load has_group %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="{% static 'accounts/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/style_admin_programs.css' %}">
+    <title>U Summer School</title>
+    <link rel="stylesheet" href="https://unpkg.com/accordion-js@3.3.2/dist/accordion.min.css">
+
+    <style>
+        .overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            transition: opacity 500ms;
+            visibility: hidden;
+            opacity: 0;
+        }
+        .overlay:target {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .popup {
+            margin: 70px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 36px;
+            padding: 60px;
+            position: relative;
+        }
+
+        .popup .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            transition: all 200ms;
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+        .popup .close:hover {
+            color: #06D85F;
+        }
+        .popup .content {
+            max-height: 30%;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="">
+            <div class="container__blue header__card">
+                <div class="header__menu flex">
+                    <a href="{% url 'home' %}" class="header__link-logo">
+                        <img src="{% static 'accounts/img/header__logo.svg' %}" alt="Logo" class="header__logo" >
+                    </a>
+                    <div class="header__position-home">
+                        <a href="{% url 'account_student' %}" class="header__link-home profile">
+                            Профиль
+                        </a>
+                        {% if request.user|has_group:"Student" %}
+                        <a href="{% url 'lk_account_student_programs' %}" class="header__link-home program">
+                            Мои направления
+                        </a>
+                        {% endif %}
+                        {% if request.user|has_group:"Student" %}
+                        <a href="{% url 'lk_account_curator_students' %}" class="header__link-home program">
+                            Список кандидатов
+                        </a>
+                        {% endif %}
+                        {% if request.user|has_group:"Student" %}
+                        <a href="{% url 'programs' %}" class="header__link-home program activ">
+                            Редактор заданий
+                        </a>
+                        {% endif %}
+                    </div>
+                    <div class="flex">
+                        <div class="flex">
+                            <button class="button-reset button__bell">
+                                <svg width="29" height="40" viewBox="0 0 29 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14.5 40C16.4937 40 18.125 38.4308 18.125 36.5128H10.875C10.875 38.4308 12.5063 40 14.5 40ZM25.375 29.5385V20.8205C25.375 15.4677 22.4206 10.9867 17.2188 9.80103V8.61538C17.2188 7.16821 16.0044 6 14.5 6C12.9956 6 11.7812 7.16821 11.7812 8.61538V9.80103C6.5975 10.9867 3.625 15.4503 3.625 20.8205V29.5385L0 33.0256V34.7692H29V33.0256L25.375 29.5385ZM21.75 31.2821H7.25V20.8205C7.25 16.4964 9.98687 12.9744 14.5 12.9744C19.0131 12.9744 21.75 16.4964 21.75 20.8205V31.2821Z" fill="#3F43C5"/>
+                                    <circle cx="24" cy="5" r="5" fill="#EF476F"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="personal-account-mini">
+                            <div class="flex program__list-items">
+                                <button class="button-reset flex popup-btn header__more-group" onclick="myFunction()">
+                                    <img src="{% static 'accounts/img/mini-photo.png' %}" alt="mini-photo" class="popup-btn mini-photo__size">
+                                    <svg width="23" height="16" viewBox="0 0 23 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="header__button-more popup-btn">
+                                        <path d="M2.7025 0.5L11.5 9.77125L20.2975 0.5L23 3.35425L11.5 15.5L0 3.35425L2.7025 0.5Z" fill="#3F43C5"/>
+                                    </svg>
+                                </button>
+                                <div class="popup-window" id="myDropdown">
+                                    <div class="form-container popup-window__body flex">
+                                        <div class="popup-window__photo-space">
+                                            <img src="{% static 'accounts/img/mini-photo.png' %}" alt="mini-photo" class="mini-photo__size">
+                                        </div>
+
+                                        <div class="popup-window__text-space">
+                                            <p class="popup-window__title">
+                                                {{ user.profile.last_name }} {{ user.profile.first_name }} {{ user.profile.patronymic_name }}
+                                            </p>
+                                            <ul class="list-reset popup-window__list">
+                                                <li class="popup-window__text">
+                                                    <a href="{% url 'account_student' %}">Профиль</a>
+
+                                                </li>
+                                                <li class="popup-window__text">
+                                                    <a href="{% url 'account_student' %}">Мои направления</a>
+
+                                                </li>
+                                                <li class="popup-window__text">
+                                                    <a href="{% url 'logout' %}">Выйти из аккаунта</a>
+
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="">
+                                            <button type="button" class="button-reset popup-btn-close">
+                                                <img src="{% static 'accounts/img/arrow.svg' %}" alt="" class="popup-btn-close">
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <section class="account__student">
+
+            <div class="account__programs">
+                <div class="web-adaptive">
+                    <div class="flex account__student-maintenance">
+                        <h2 class="account__student-title">
+                            Добавить задание
+                        </h2>
+
+                      <form action="" method="post">
+                        {% csrf_token %}
+                        <ul class="list-reset">
+                          <li>
+                          <p class="authorization__text">Название задания</p>
+                          <input class="authorization__input" type="text" id="title" name="title">
+                        </li>
+                        <li style="margin-bottom: 20px; ">
+                          <p class="authorization__text">Описание задания</p>
+                          <input class="authorization__input" type="text" id="description" name="description">
+                        </li>
+                        </ul>
+
+
+
+                        <input class="authorization__button" type="submit" value="Создать">
+                      </form>
+
+
+
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container__blue-footer footer__position flex">
+            <a href="{% url 'home' %}" class="footer__logo">
+                <img src="{% static 'accounts/img/footer__logo.svg' %}" alt="Logo" class="header__logo" >
+            </a>
+        </div>
+    </footer>
+
+
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/d8bd919f93.js" crossorigin="anonymous"></script>
+
+    <script src="script.js"></script>
+    <script>
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.popup-btn')) {
+
+                var dropdowns = document.getElementsByClassName("popup-window");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    console.log(event.target.classList.contains('popup-btn-close'));
+                    console.log(event.target.classList);
+                    if (openDropdown.classList.contains('show') && event.target.classList.contains('popup-btn-close')) {
+                        openDropdown.classList.remove('show');
+                    }
+
+                    if (!openDropdown.classList.contains('show')) {
+                        document.querySelector('meta[name="user-scalable"]').setAttribute("no", _desc);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
